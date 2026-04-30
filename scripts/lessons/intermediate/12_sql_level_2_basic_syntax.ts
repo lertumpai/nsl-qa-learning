@@ -4,7 +4,7 @@ export const sqlLevel2BasicSyntaxLesson: LessonRow = {
   level_slug: "intermediate",
   title: "SQL Level 2: Basic Syntax",
   description: "Practice SQL queries with schema, mock data, and expected QA-focused results",
-  step_order: 10,
+  step_order: 12,
   duration_min: 16,
   content: `## SQL Level 2 - Basic Syntax with Schema, Mock Data, and Query Results
 

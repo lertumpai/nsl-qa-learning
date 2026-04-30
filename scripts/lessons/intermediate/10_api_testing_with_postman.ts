@@ -4,7 +4,7 @@ export const apiTestingWithPostmanLesson: LessonRow = {
   level_slug: "intermediate",
   title: "API Testing with Postman",
   description: "Master collections, environments, assertions, chaining, and CI integration",
-  step_order: 8,
+  step_order: 10,
   duration_min: 20,
   content: `## API Testing with Postman
 

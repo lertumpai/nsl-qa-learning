@@ -4,7 +4,7 @@ export const performanceTestingConceptsLesson: LessonRow = {
   level_slug: "intermediate",
   title: "Performance Testing Concepts",
   description: "Understand load, stress, soak, and spike testing with real metrics",
-  step_order: 12,
+  step_order: 14,
   duration_min: 15,
   content: `## Performance Testing Concepts
 

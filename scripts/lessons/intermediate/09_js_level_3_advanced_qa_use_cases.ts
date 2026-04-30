@@ -1,4 +1,12 @@
-export const jsLevel3AdvancedQaUseCasesContent = `## Level 3 - Advanced QA Use Cases
+import type { LessonRow } from "../../lesson-types";
+
+export const jsLevel3AdvancedQaUseCasesLesson: LessonRow = {
+  level_slug: "intermediate",
+  title: "JavaScript Level 3: Advanced QA Use Cases",
+  description: "Use async patterns, robust assertions, and API+UI workflows in advanced QA automation",
+  step_order: 9,
+  duration_min: 18,
+  content: `## Level 3 - Advanced QA Use Cases
 
 ### Async/Await for Reliable Automation
 
@@ -7,9 +15,9 @@ Most QA work is asynchronous: browser actions, API calls, DB setup, and file ope
 \`\`\`javascript
 async function fetchProfile(token) {
   const response = await fetch("https://api.example.com/me", {
-    headers: { Authorization: `Bearer ${token}` },
+    headers: { Authorization: \`Bearer \${token}\` },
   });
-  if (!response.ok) throw new Error(`Profile request failed: ${response.status}`);
+  if (!response.ok) throw new Error(\`Profile request failed: \${response.status}\`);
   return response.json();
 }
 \`\`\`
@@ -21,7 +29,7 @@ Advanced QA code should fail loudly and explain exactly why. Useful errors inclu
 \`\`\`javascript
 function assertEqual(actual, expected, label) {
   if (actual !== expected) {
-    throw new Error(`[${label}] expected=${expected}, actual=${actual}`);
+    throw new Error(\`[\${label}] expected=\${expected}, actual=\${actual}\`);
   }
 }
 
@@ -53,14 +61,14 @@ const orderRes = await fetch("https://api.example.com/orders", {
   method: "POST",
   headers: {
     "Content-Type": "application/json",
-    Authorization: `Bearer ${token}`,
+    Authorization: \`Bearer \${token}\`,
   },
   body: JSON.stringify({ sku: "KB-01", qty: 1 }),
 });
 const order = await orderRes.json();
 
 // 2) UI verification (Playwright-style pseudocode)
-// await page.goto(`/orders/${order.id}`);
+// await page.goto(\`/orders/\${order.id}\`);
 // await expect(page.getByText("KB-01")).toBeVisible();
 \`\`\`
 
@@ -103,4 +111,5 @@ Strict equality prevents implicit conversion and reveals real contract problems.
 
 #### Practice Prompt
 
-Build a mini data-driven login validator using an array of test cases. For each case, print whether the expected message and expected data type were both matched.`;
+Build a mini data-driven login validator using an array of test cases. For each case, print whether the expected message and expected data type were both matched.`,
+};

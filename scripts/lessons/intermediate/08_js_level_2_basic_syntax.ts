@@ -1,4 +1,12 @@
-export const jsLevel2BasicSyntaxContent = `## Level 2 - Basic Syntax and Practical Patterns
+import type { LessonRow } from "../../lesson-types";
+
+export const jsLevel2BasicSyntaxLesson: LessonRow = {
+  level_slug: "intermediate",
+  title: "JavaScript Level 2: Basic Syntax and Patterns",
+  description: "Apply practical JavaScript syntax patterns for maintainable QA automation",
+  step_order: 8,
+  duration_min: 16,
+  content: `## Level 2 - Basic Syntax and Practical Patterns
 
 ### Arrays and Data-Driven Testing
 
@@ -78,4 +86,5 @@ export function buildEmail() {
 // tests/login.spec.js
 import { buildEmail } from "../utils/testData";
 console.log(buildEmail());
-\`\`\``;
+\`\`\``,
+};

@@ -4,7 +4,7 @@ export const sqlLevel1FundamentalLesson: LessonRow = {
 	level_slug: "intermediate",
 	title: "SQL Level 1: Fundamental",
 	description: "Understand relational database foundations and SQL data types in QA context",
-	step_order: 9,
+	step_order: 11,
 	duration_min: 12,
 	content: `## SQL Level 1 - Fundamental
 

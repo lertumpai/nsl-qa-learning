@@ -14,15 +14,16 @@ import { equivalencePartitioningLesson } from "./intermediate/03_equivalence_par
 import { boundaryValueAnalysisLesson } from "./intermediate/04_boundary_value_analysis";
 import { decisionTableAndStateTransitionTestingLesson } from "./intermediate/05_decision_table_and_state_transition_testing";
 import { smokeSanityAndRegressionTestingLesson } from "./intermediate/06_smoke_sanity_and_regression_testing";
-import { fullJavascriptForQaAutomationLesson } from "./intermediate/07_full_javascript_for_qa_automation";
-import { apiTestingWithPostmanLesson } from "./intermediate/08_api_testing_with_postman";
-import { sqlLevel1FundamentalLesson } from "./intermediate/09_sql_level_1_fundamental";
-import { sqlLevel2BasicSyntaxLesson } from "./intermediate/10_sql_level_2_basic_syntax";
-import { sqlLevel3AdvancedQaUseCasesLesson } from "./intermediate/11_sql_level_3_advanced_qa_use_cases";
-import { performanceTestingConceptsLesson } from "./intermediate/12_performance_testing_concepts";
-import { agileTestingAndScrumLesson } from "./intermediate/13_agile_testing_and_scrum";
-import { testMetricsAndReportingLesson } from "./intermediate/14_test_metrics_and_reporting";
-import { mobileTestingBasicsLesson } from "./intermediate/15_mobile_testing_basics";
+import { jsLevel1FundamentalLesson } from "./intermediate/07_js_level_1_fundamental";
+import { jsLevel2BasicSyntaxLesson } from "./intermediate/08_js_level_2_basic_syntax";
+import { jsLevel3AdvancedQaUseCasesLesson } from "./intermediate/09_js_level_3_advanced_qa_use_cases";
+import { apiTestingWithPostmanLesson } from "./intermediate/10_api_testing_with_postman";
+import { sqlLevel1FundamentalLesson } from "./intermediate/11_sql_level_1_fundamental";
+import { sqlLevel2BasicSyntaxLesson } from "./intermediate/12_sql_level_2_basic_syntax";
+import { sqlLevel3AdvancedQaUseCasesLesson } from "./intermediate/13_sql_level_3_advanced_qa_use_cases";
+import { performanceTestingConceptsLesson } from "./intermediate/14_performance_testing_concepts";
+import { agileTestingAndScrumLesson } from "./intermediate/15_agile_testing_and_scrum";
+import { testMetricsAndReportingLesson } from "./intermediate/16_test_metrics_and_reporting";
 import { testAutomationStrategyLesson } from "./advanced/01_test_automation_strategy";
 import { seleniumWebdriverLesson } from "./advanced/02_selenium_webdriver";
 import { cypressIoModernTestingLesson } from "./advanced/03_cypress_io_modern_testing";
@@ -54,7 +55,9 @@ export const lessons: LessonRow[] = [
   boundaryValueAnalysisLesson,
   decisionTableAndStateTransitionTestingLesson,
   smokeSanityAndRegressionTestingLesson,
-  fullJavascriptForQaAutomationLesson,
+  jsLevel1FundamentalLesson,
+  jsLevel2BasicSyntaxLesson,
+  jsLevel3AdvancedQaUseCasesLesson,
   apiTestingWithPostmanLesson,
   sqlLevel1FundamentalLesson,
   sqlLevel2BasicSyntaxLesson,
@@ -62,7 +65,6 @@ export const lessons: LessonRow[] = [
   performanceTestingConceptsLesson,
   agileTestingAndScrumLesson,
   testMetricsAndReportingLesson,
-  mobileTestingBasicsLesson,
   testAutomationStrategyLesson,
   seleniumWebdriverLesson,
   cypressIoModernTestingLesson,

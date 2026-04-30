@@ -4,7 +4,7 @@ export const sqlLevel3AdvancedQaUseCasesLesson: LessonRow = {
 	level_slug: "intermediate",
 	title: "SQL Level 3: Advanced QA Use Cases",
 	description: "Apply SQL for constraints, transactions, soft delete validation, and release-risk checks",
-	step_order: 11,
+	step_order: 13,
 	duration_min: 16,
 	content: `## SQL Level 3 - Advanced QA Use Cases
 
