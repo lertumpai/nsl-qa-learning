@@ -6,7 +6,7 @@ export const sqlLevel3AdvancedQaUseCasesLesson: LessonRow = {
 	description: "Apply SQL for constraint testing, transactions, soft delete, migration validation, and release-risk checks",
 	step_order: 13,
 	duration_min: 30,
-  image: "https://images.unsplash.com/photo-1551431009-381d36ac3a14?w=800&h=600",
+  image: "/lessons/intermediate/13_sql_level_3_advanced_qa_use_cases.png",
 	content: `## SQL Level 3 - Advanced QA Use Cases
 
 Level 2 taught you how to write SELECT, INSERT, UPDATE, and DELETE queries. This level teaches you how to use SQL as a **verification tool** for high-stakes production scenarios: data integrity, transactions, soft delete, migration safety, and release readiness checks. These techniques are what separate junior QA engineers from senior ones.

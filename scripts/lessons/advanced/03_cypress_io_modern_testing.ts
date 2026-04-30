@@ -6,7 +6,7 @@ export const cypressIoModernTestingLesson: LessonRow = {
   description: "Fast, reliable E2E testing with Cypress commands and patterns",
   step_order: 3,
   duration_min: 20,
-  image: "https://images.unsplash.com/photo-1633356122544-f134324ef6db?w=800&h=600",
+  image: "/lessons/advanced/03_cypress_io_modern_testing.png",
   content: `## Cypress.io Modern Testing
 
 Cypress is a modern, developer-friendly E2E testing framework that runs directly inside the browser. Unlike Selenium, which controls the browser externally, Cypress executes in the same runtime as your application — giving it deep visibility into application state, network requests, and JavaScript execution.

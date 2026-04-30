@@ -6,7 +6,7 @@ export const jsLevel3AdvancedQaUseCasesLesson: LessonRow = {
   description: "Master async patterns, API testing, error handling, and production-grade QA automation techniques",
   step_order: 9,
   duration_min: 30,
-  image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800&h=600",
+  image: "/lessons/intermediate/09_js_level_3_advanced_qa_use_cases.png",
   content: `## Level 3 - Advanced QA Use Cases
 
 This level covers the JavaScript patterns used in real professional QA automation. Level 1 taught you data types and variables. Level 2 taught you arrays, objects, and functions. Level 3 teaches you how to work with time — specifically how to handle operations that take time to complete, like API calls, database queries, and browser interactions.

@@ -7,6 +7,7 @@ export interface Level {
   icon: string;
   color: string;
   lesson_count?: number;
+  total_duration_min?: number;
   completed_count?: number;
 }
 

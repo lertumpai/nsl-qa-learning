@@ -17,11 +17,18 @@ const ICONS: Record<string, React.ReactNode> = {
   Zap: <Zap size={32} />,
 };
 
-const LEVEL_DURATIONS: Record<string, string> = {
-  beginner: "~2 hrs",
-  intermediate: "~4 hrs",
-  advanced: "~5 hrs",
-};
+function formatDuration(totalMinutes: number) {
+  if (totalMinutes <= 0) return "0 hr";
+
+  const hours = totalMinutes / 60;
+  const roundedHours = Math.round(hours * 10) / 10;
+
+  if (Number.isInteger(roundedHours)) {
+    return `${roundedHours} hr${roundedHours === 1 ? "" : "s"}`;
+  }
+
+  return `${roundedHours} hrs`;
+}
 
 interface Props {
   level: Level;
@@ -31,6 +38,7 @@ interface Props {
 
 export default function LevelCard({ level, isLocked }: Props) {
   const lessonCount = level.lesson_count ?? 0;
+  const totalDurationMinutes = level.total_duration_min ?? 0;
   const completedCount = level.completed_count ?? 0;
   const progress = lessonCount > 0 ? Math.round((completedCount / lessonCount) * 100) : 0;
   const hasStarted = completedCount > 0;
@@ -133,7 +141,7 @@ export default function LevelCard({ level, isLocked }: Props) {
           <Box sx={{ display: "flex", alignItems: "center", gap: 0.5 }}>
             <Clock size={14} color="#6B7280" />
             <Typography variant="caption" color="text.secondary">
-              {LEVEL_DURATIONS[level.slug] ?? "~3 hrs"}
+              {formatDuration(totalDurationMinutes)}
             </Typography>
           </Box>
         </Box>

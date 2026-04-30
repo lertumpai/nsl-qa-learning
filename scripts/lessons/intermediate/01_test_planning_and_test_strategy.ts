@@ -6,7 +6,7 @@ export const testPlanningAndTestStrategyLesson: LessonRow = {
   description: "Create professional test plans, strategies, and risk-based coverage",
   step_order: 1,
   duration_min: 18,
-  image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=600",
+  image: "/lessons/intermediate/01_test_planning_and_test_strategy.png",
   content: `## Test Planning & Test Strategy
 
 A **Test Strategy** defines the overall approach to testing across the organization or project. A **Test Plan** implements that strategy for a specific release or sprint.

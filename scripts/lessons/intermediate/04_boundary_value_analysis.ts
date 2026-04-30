@@ -6,7 +6,7 @@ export const boundaryValueAnalysisLesson: LessonRow = {
   description: "Test the edges where most bugs hide — the off-by-one errors",
   step_order: 4,
   duration_min: 15,
-  image: "https://images.unsplash.com/photo-1551431009-381d36ac3a14?w=800&h=600",
+  image: "/lessons/intermediate/04_boundary_value_analysis.png",
   content: `## Boundary Value Analysis
 
 Boundary Value Analysis (BVA) focuses testing on the **boundaries of equivalence partitions** — the edges where most bugs occur. Developers often make off-by-one errors at these boundaries.

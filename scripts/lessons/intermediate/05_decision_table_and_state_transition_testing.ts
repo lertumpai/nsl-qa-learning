@@ -6,7 +6,7 @@ export const decisionTableAndStateTransitionTestingLesson: LessonRow = {
   description: "Test complex business logic combinations and state-based behavior",
   step_order: 5,
   duration_min: 18,
-  image: "https://images.unsplash.com/photo-1551431009-381d36ac3a14?w=800&h=600",
+  image: "/lessons/intermediate/05_decision_table_and_state_transition_testing.png",
   content: `## Decision Table & State Transition Testing
 
 ### Decision Table Testing

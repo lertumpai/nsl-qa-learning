@@ -9,6 +9,7 @@ import { getLessonById, getAdjacentLessons } from "@/app/actions/lessons";
 import { getOrCreateSession } from "@/lib/session";
 import Navbar from "@/components/Navbar";
 import LessonContent from "@/components/LessonContent";
+import LessonImagePreview from "@/components/LessonImagePreview";
 import { ArrowLeft, ArrowRight, Clock, CheckCircle } from "lucide-react";
 
 interface PageProps {
@@ -119,6 +120,10 @@ export default async function LessonPage({ params }: PageProps) {
             mb: 6,
           }}
         >
+          <LessonImagePreview
+            src={lesson.image}
+            alt={`${lesson.title} lesson image`}
+          />
           <LessonContent content={lesson.content} />
         </Box>
 

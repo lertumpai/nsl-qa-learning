@@ -6,7 +6,7 @@ export const whatIsSoftwareTestingLesson: LessonRow = {
   description: "Understand the purpose, goals, and core principles of software testing",
   step_order: 1,
   duration_min: 12,
-  image: "https://images.unsplash.com/photo-1516534775068-bb6a7b6d4187?w=800&h=600",
+  image: "/lessons/beginner/01_what_is_software_testing.png",
   content: `## What is Software Testing?
 
 Software testing is the process of **evaluating and verifying** that a software product does what it is supposed to do. The goal is to identify gaps, errors, or missing requirements and to provide confidence that the software is fit for use.

@@ -6,7 +6,7 @@ export const performanceTestingWithK6Lesson: LessonRow = {
   description: "Write k6 scripts, simulate VUs, analyze results, and integrate into CI",
   step_order: 7,
   duration_min: 20,
-  image: "https://images.unsplash.com/photo-1550355291-bbee04a92027?w=800&h=600",
+  image: "/lessons/advanced/07_performance_testing_with_k6.png",
   content: `## Performance Testing with k6
 
 k6 is a modern, developer-friendly performance testing tool built by Grafana. Tests are written in JavaScript, making it accessible to any team comfortable with web development. It is designed for CI integration, threshold-based pass/fail, and scripting realistic user journeys.

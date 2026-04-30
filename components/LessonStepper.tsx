@@ -20,6 +20,8 @@ interface Props {
 
 export default function LessonStepper({ lessons, levelColor, levelSlug }: Props) {
   const firstIncompleteIndex = lessons.findIndex((l) => !l.completed);
+  const allowsFreeSelection =
+    levelSlug === "beginner" || levelSlug === "intermediate" || levelSlug === "advanced";
 
   return (
     <Box sx={{ display: "flex", flexDirection: "column", gap: 0 }}>
@@ -27,8 +29,9 @@ export default function LessonStepper({ lessons, levelColor, levelSlug }: Props)
         const isCompleted = lesson.completed;
         const isCurrent =
           index === firstIncompleteIndex || (firstIncompleteIndex === -1 && index === lessons.length - 1);
-        // For advanced level, all lessons are accessible. For other levels, only up to current
-        const isAccessible = levelSlug === "advanced" || index <= (firstIncompleteIndex === -1 ? lessons.length - 1 : firstIncompleteIndex);
+        const isAccessible =
+          allowsFreeSelection ||
+          index <= (firstIncompleteIndex === -1 ? lessons.length - 1 : firstIncompleteIndex);
 
         return (
           <Box

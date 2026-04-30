@@ -6,7 +6,7 @@ export const softwareDevelopmentLifeCycleSdlcLesson: LessonRow = {
   description: "Learn the phases of SDLC, all major models, and where QA fits in",
   step_order: 2,
   duration_min: 15,
-  image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=600",
+  image: "/lessons/beginner/02_software_development_life_cycle_sdlc.png",
   content: `## Software Development Life Cycle (SDLC)
 
 The SDLC is a structured process for planning, creating, testing, and deploying software. Understanding SDLC is essential for QA engineers because it defines **when and how testing is performed**.

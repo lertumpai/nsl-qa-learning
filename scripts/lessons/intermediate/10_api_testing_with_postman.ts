@@ -6,7 +6,7 @@ export const apiTestingWithPostmanLesson: LessonRow = {
   description: "Master collections, environments, assertions, chaining, and CI integration",
   step_order: 10,
   duration_min: 20,
-  image: "https://images.unsplash.com/photo-1633356122544-f134324ef6db?w=800&h=600",
+  image: "/lessons/intermediate/10_api_testing_with_postman.png",
   content: `## API Testing with Postman
 
 Postman is the industry-standard tool for API testing. This lesson covers the practical skills you need for day-to-day API testing and CI pipeline integration.

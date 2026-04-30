@@ -6,7 +6,7 @@ export const testMetricsAndReportingLesson: LessonRow = {
   description: "Measure and communicate testing effectiveness to drive decisions",
   step_order: 16,
   duration_min: 15,
-  image: "https://images.unsplash.com/photo-1550355291-bbee04a92027?w=800&h=600",
+  image: "/lessons/intermediate/16_test_metrics_and_reporting.png",
   content: `## Test Metrics & Reporting
 
 Metrics help you measure the effectiveness of testing, communicate status to stakeholders, and identify areas for improvement. Good metrics drive decisions — bad metrics fill dashboards without helping anyone.

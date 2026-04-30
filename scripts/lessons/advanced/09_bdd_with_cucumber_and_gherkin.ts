@@ -6,7 +6,7 @@ export const bddWithCucumberAndGherkinLesson: LessonRow = {
   description: "Write living documentation with Given/When/Then and automate it with Cucumber",
   step_order: 9,
   duration_min: 18,
-  image: "https://images.unsplash.com/photo-1633356122544-f134324ef6db?w=800&h=600",
+  image: "/lessons/advanced/09_bdd_with_cucumber_and_gherkin.png",
   content: `## BDD with Cucumber & Gherkin
 
 Behavior-Driven Development (BDD) bridges the communication gap between business stakeholders, developers, and QA. The key insight is that tests written in plain English — before development begins — serve as both the specification and the automated verification of a feature.

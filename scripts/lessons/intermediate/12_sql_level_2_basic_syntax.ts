@@ -6,7 +6,7 @@ export const sqlLevel2BasicSyntaxLesson: LessonRow = {
   description: "Write real SQL queries with schema, mock data, and expected QA-focused results — with full keyword explanations",
   step_order: 12,
   duration_min: 28,
-  image: "https://images.unsplash.com/photo-1551431009-381d36ac3a14?w=800&h=600",
+  image: "/lessons/intermediate/12_sql_level_2_basic_syntax.png",
   content: `## SQL Level 2 - Basic Syntax with Schema, Mock Data, and Query Results
 
 Level 1 taught you what a database is and how it stores data. This level teaches you how to actually write SQL queries to read, create, update, and delete data. Every query comes with a full explanation of each keyword and the expected result so you can verify your understanding.

@@ -6,7 +6,7 @@ export const seleniumWebdriverLesson: LessonRow = {
   description: "Automate browsers with Selenium locators, waits, and Page Object Model",
   step_order: 2,
   duration_min: 22,
-  image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800&h=600",
+  image: "/lessons/advanced/02_selenium_webdriver.png",
   content: `## Selenium WebDriver
 
 Selenium WebDriver is the foundation of web automation and the most widely used browser automation framework in the industry. It provides a programming interface to control browsers by simulating real user actions — clicking, typing, navigating, and reading page content.

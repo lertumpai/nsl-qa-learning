@@ -6,7 +6,7 @@ export const softwareTestingLifeCycleStlcLesson: LessonRow = {
   description: "Master the 6 phases of the testing lifecycle with entry/exit criteria",
   step_order: 3,
   duration_min: 15,
-  image: "https://images.unsplash.com/photo-1633356122544-f134324ef6db?w=800&h=600",
+  image: "/lessons/beginner/03_software_testing_life_cycle_stlc.png",
   content: `## Software Testing Life Cycle (STLC)
 
 The STLC defines the series of activities performed during testing to ensure software quality. It runs in parallel with — and is driven by — the SDLC.

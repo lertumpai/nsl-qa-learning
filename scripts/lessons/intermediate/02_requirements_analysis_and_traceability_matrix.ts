@@ -6,7 +6,7 @@ export const requirementsAnalysisAndTraceabilityMatrixLesson: LessonRow = {
   description: "Analyze requirements, write acceptance criteria, and build an RTM",
   step_order: 2,
   duration_min: 15,
-  image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=600",
+  image: "/lessons/intermediate/02_requirements_analysis_and_traceability_matrix.png",
   content: `## Requirements Analysis & Traceability Matrix
 
 Understanding requirements is one of the most important skills for a QA engineer. Every test case must trace back to a requirement. Finding ambiguity in requirements early prevents defects from being built in.

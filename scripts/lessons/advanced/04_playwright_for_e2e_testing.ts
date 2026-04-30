@@ -6,7 +6,7 @@ export const playwrightForE2eTestingLesson: LessonRow = {
   description: "Multi-browser E2E testing with Playwright's powerful API and trace tools",
   step_order: 4,
   duration_min: 22,
-  image: "https://images.unsplash.com/photo-1633356122544-f134324ef6db?w=800&h=600",
+  image: "/lessons/advanced/04_playwright_for_e2e_testing.png",
   content: `## Playwright for E2E Testing
 
 Playwright is Microsoft's modern E2E testing framework. It supports all major browsers (Chromium, Firefox, and WebKit/Safari-engine), has excellent TypeScript support, and is designed for reliable tests on modern web applications. It is one of the fastest-growing automation tools in the industry.

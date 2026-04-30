@@ -40,6 +40,10 @@ const lessonCountByLevel = lessonRows.reduce<Record<string, number>>((counts, le
   counts[lesson.level_slug] = (counts[lesson.level_slug] ?? 0) + 1;
   return counts;
 }, {});
+const totalDurationByLevel = lessonRows.reduce<Record<string, number>>((totals, lesson) => {
+  totals[lesson.level_slug] = (totals[lesson.level_slug] ?? 0) + lesson.duration_min;
+  return totals;
+}, {});
 
 export const lessons: (Lesson & { level_slug: string; level_title: string })[] = lessonRows.map(
   (lesson, index) => {
@@ -56,6 +60,7 @@ export const lessons: (Lesson & { level_slug: string; level_title: string })[] =
       content: lesson.content,
       step_order: lesson.step_order,
       duration_min: lesson.duration_min,
+      image: lesson.image,
       level_slug: level.slug,
       level_title: level.title,
     };
@@ -68,6 +73,7 @@ const lessonByTitle = new Map(lessons.map((lesson) => [lesson.title, lesson]));
 export const levels: Level[] = LEVELS.map((level) => ({
   ...level,
   lesson_count: lessonCountByLevel[level.slug] ?? 0,
+  total_duration_min: totalDurationByLevel[level.slug] ?? 0,
 }));
 
 export const quizzes: Quiz[] = quizRows.map((quiz, index) => {
