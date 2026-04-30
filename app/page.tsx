@@ -1,164 +1,133 @@
+import { redirect } from "next/navigation";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
-import Grid from "@mui/material/Grid";
+import TextField from "@mui/material/TextField";
+import Button from "@mui/material/Button";
+import Alert from "@mui/material/Alert";
 import Chip from "@mui/material/Chip";
-import { getLevels } from "@/app/actions/levels";
+import { BookOpen, Lock } from "lucide-react";
 import { getSession } from "@/lib/session";
-import { quizzes } from "@/lib/content";
-import Navbar from "@/components/Navbar";
-import LevelCard from "@/components/LevelCard";
+import { login } from "@/app/actions/auth";
 
-export default async function HomePage() {
-  const sessionId = await getSession();
-  const levels = await getLevels(sessionId ?? undefined);
-  const lessonCount = levels.reduce((total, level) => total + (level.lesson_count ?? 0), 0);
+interface PageProps {
+  searchParams: Promise<{ error?: string }>;
+}
+
+export default async function GatePage({ searchParams }: PageProps) {
+  // Already logged in → go straight to /learn
+  const session = await getSession();
+  if (session) redirect("/learn");
+
+  const { error } = await searchParams;
 
   return (
-    <Box sx={{ minHeight: "100vh", bgcolor: "background.default" }}>
-      <Navbar />
-
-      {/* Hero */}
-      <Box
-        sx={{
-          background: "linear-gradient(135deg, #0D9488 0%, #0F766E 50%, #134E4A 100%)",
-          color: "white",
-          py: { xs: 8, md: 12 },
-          textAlign: "center",
-          position: "relative",
-          overflow: "hidden",
-          "&::before": {
-            content: '""',
-            position: "absolute",
-            top: "-50%",
-            left: "-20%",
-            width: "60%",
-            height: "200%",
-            background: "rgba(255,255,255,0.04)",
-            borderRadius: "50%",
-            pointerEvents: "none",
-          },
-        }}
-      >
-        <Container maxWidth="md">
-          <Chip
-            label="ZERO TO HERO"
-            size="small"
-            sx={{
-              mb: 3,
-              backgroundColor: "rgba(255,255,255,0.15)",
-              color: "white",
-              fontFamily: '"Fira Code", monospace',
-              fontWeight: 700,
-              letterSpacing: 2,
-              border: "1px solid rgba(255,255,255,0.3)",
-            }}
-          />
-          <Typography
-            variant="h2"
-            sx={{
-              fontFamily: '"Fira Code", monospace',
-              fontWeight: 700,
-              fontSize: { xs: "2rem", md: "3rem" },
-              mb: 2,
-              lineHeight: 1.2,
-            }}
-          >
-            Become a QA Engineer
-          </Typography>
-          <Typography
-            variant="h6"
-            sx={{
-              fontWeight: 300,
-              opacity: 0.9,
-              mb: 5,
-              maxWidth: 560,
-              mx: "auto",
-              lineHeight: 1.6,
-            }}
-          >
-            Master software testing from the fundamentals to advanced automation.
-            One lesson at a time, one quiz at a time.
-          </Typography>
-
-          {/* Stats */}
-          <Box
-            sx={{
-              display: "flex",
-              gap: 4,
-              justifyContent: "center",
-              flexWrap: "wrap",
-            }}
-          >
-            {[
-              { value: levels.length.toString(), label: "Levels" },
-              { value: lessonCount.toString(), label: "Lessons" },
-              { value: (quizzes.length).toString(), label: "Quiz Questions" },
-            ].map((stat) => (
-              <Box key={stat.label} sx={{ textAlign: "center" }}>
-                <Typography
-                  variant="h4"
-                  sx={{ fontFamily: '"Fira Code", monospace', fontWeight: 700 }}
-                >
-                  {stat.value}
-                </Typography>
-                <Typography variant="body2" sx={{ opacity: 0.8 }}>
-                  {stat.label}
-                </Typography>
-              </Box>
-            ))}
+    <Box
+      sx={{
+        minHeight: "100vh",
+        background: "linear-gradient(135deg, #0D9488 0%, #0F766E 50%, #134E4A 100%)",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        p: 2,
+      }}
+    >
+      <Container maxWidth="xs">
+        <Box
+          sx={{
+            backgroundColor: "background.paper",
+            borderRadius: 4,
+            p: { xs: 4, sm: 5 },
+            boxShadow: "0 24px 64px rgba(0,0,0,0.18)",
+          }}
+        >
+          {/* Logo */}
+          <Box sx={{ display: "flex", alignItems: "center", gap: 1.5, mb: 4 }}>
+            <Box
+              sx={{
+                width: 44,
+                height: 44,
+                borderRadius: 2.5,
+                backgroundColor: "#F0FDFA",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <BookOpen size={24} color="#0D9488" />
+            </Box>
+            <Typography
+              variant="h6"
+              sx={{ fontFamily: '"Fira Code", monospace', fontWeight: 700, color: "primary.main" }}
+            >
+              QA Academy
+            </Typography>
           </Box>
-        </Container>
-      </Box>
 
-      {/* Level Cards */}
-      <Container maxWidth="lg" sx={{ py: { xs: 6, md: 10 } }}>
-        <Typography
-          variant="h4"
-          sx={{
-            fontFamily: '"Fira Code", monospace',
-            fontWeight: 700,
-            mb: 1,
-            color: "text.primary",
-            textAlign: "center",
-          }}
-        >
-          Choose Your Level
-        </Typography>
-        <Typography
-          variant="body1"
-          sx={{
-            color: "text.secondary",
-            textAlign: "center",
-            mb: 6,
-          }}
-        >
-          Start at Beginner and work your way up. Each level builds on the previous.
-        </Typography>
+          <Box sx={{ display: "flex", alignItems: "center", gap: 1, mb: 1 }}>
+            <Lock size={18} color="#6B7280" />
+            <Typography variant="h5" sx={{ fontFamily: '"Fira Code", monospace', fontWeight: 700 }}>
+              Enter your secret
+            </Typography>
+          </Box>
+          <Typography variant="body2" color="text.secondary" sx={{ mb: 3 }}>
+            This course is invite-only. Enter your personal access secret to continue.
+          </Typography>
 
-        <Grid container spacing={4} sx={{ justifyContent: "center" }}>
-          {levels.map((level, index) => (
-            <Grid key={level.id} size={{ xs: 12, sm: 6, md: 4 }}>
-              <LevelCard level={level} isLocked={false} index={index} />
-            </Grid>
-          ))}
-        </Grid>
+          {error === "invalid" && (
+            <Alert severity="error" sx={{ mb: 3, borderRadius: 2 }}>
+              Invalid secret. Please try again.
+            </Alert>
+          )}
+
+          <Box
+            component="form"
+            action={login}
+            sx={{ display: "flex", flexDirection: "column", gap: 2 }}
+          >
+            <TextField
+              name="secret"
+              label="Access secret"
+              type="password"
+              autoComplete="off"
+              required
+              fullWidth
+              autoFocus
+              size="small"
+              slotProps={{ htmlInput: { spellCheck: false } }}
+            />
+            <Button
+              type="submit"
+              variant="contained"
+              size="large"
+              fullWidth
+              sx={{
+                backgroundColor: "primary.main",
+                "&:hover": { backgroundColor: "primary.dark" },
+                fontWeight: 700,
+                py: 1.25,
+              }}
+            >
+              Enter
+            </Button>
+          </Box>
+
+          <Box sx={{ mt: 3, display: "flex", justifyContent: "center" }}>
+            <Chip
+              label="ZERO TO HERO"
+              size="small"
+              sx={{
+                fontFamily: '"Fira Code", monospace',
+                fontWeight: 700,
+                fontSize: "0.6rem",
+                letterSpacing: 1.5,
+                backgroundColor: "#F0FDFA",
+                color: "primary.main",
+              }}
+            />
+          </Box>
+        </Box>
       </Container>
-
-      {/* Footer */}
-      <Box
-        component="footer"
-        sx={{
-          borderTop: "1px solid",
-          borderColor: "divider",
-          py: 4,
-          textAlign: "center",
-        }}
-      >
-        <Typography variant="body2" color="text.secondary">
-          QA Academy — Learn testing the right way
-        </Typography>
-      </Box>
     </Box>
   );
 }

@@ -6,7 +6,7 @@ import LinkButton from "@/components/LinkButton";
 import Chip from "@mui/material/Chip";
 import LinearProgress from "@mui/material/LinearProgress";
 import { getLessonById, getAdjacentLessons } from "@/app/actions/lessons";
-import { getOrCreateSession } from "@/lib/session";
+import { getSession } from "@/lib/session";
 import Navbar from "@/components/Navbar";
 import LessonContent from "@/components/LessonContent";
 import LessonImagePreview from "@/components/LessonImagePreview";
@@ -21,9 +21,9 @@ export default async function LessonPage({ params }: PageProps) {
   const id = parseInt(lessonId);
   if (isNaN(id)) notFound();
 
-  const sessionId = await getOrCreateSession();
+  const sessionId = await getSession();
   const [lesson, adjacent] = await Promise.all([
-    getLessonById(id, sessionId),
+    getLessonById(id, sessionId ?? undefined),
     getAdjacentLessons(id),
   ]);
 
@@ -33,7 +33,7 @@ export default async function LessonPage({ params }: PageProps) {
 
   return (
     <Box sx={{ minHeight: "100vh", bgcolor: "background.default" }}>
-      <Navbar />
+      <Navbar secret={sessionId ?? undefined} />
 
       {/* Top progress bar */}
       <LinearProgress

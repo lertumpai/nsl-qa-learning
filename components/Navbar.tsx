@@ -6,9 +6,15 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
-import { BookOpen } from "lucide-react";
+import Chip from "@mui/material/Chip";
+import { BookOpen, LogOut } from "lucide-react";
+import { logout } from "@/app/actions/auth";
 
-export default function Navbar() {
+interface NavbarProps {
+  secret?: string;
+}
+
+export default function Navbar({ secret }: NavbarProps) {
   return (
     <AppBar
       position="sticky"
@@ -23,7 +29,7 @@ export default function Navbar() {
       <Toolbar sx={{ maxWidth: 1200, mx: "auto", width: "100%", px: { xs: 2, md: 3 } }}>
         <Box
           component={Link}
-          href="/"
+          href="/learn"
           sx={{
             display: "flex",
             alignItems: "center",
@@ -42,15 +48,46 @@ export default function Navbar() {
           </Typography>
         </Box>
 
-        <Box sx={{ display: "flex", gap: 1 }}>
+        <Box sx={{ display: "flex", alignItems: "center", gap: 1.5 }}>
           <Button
             component={Link}
-            href="/"
+            href="/learn"
             variant="text"
             sx={{ color: "text.secondary", fontWeight: 500 }}
           >
             Levels
           </Button>
+
+          {secret && (
+            <Chip
+              label={secret}
+              size="small"
+              sx={{
+                fontFamily: '"Fira Code", monospace',
+                fontWeight: 700,
+                fontSize: "0.7rem",
+                backgroundColor: "#F0FDFA",
+                color: "primary.main",
+                border: "1px solid",
+                borderColor: "primary.light",
+                maxWidth: 120,
+              }}
+            />
+          )}
+
+          {secret && (
+            <form action={logout}>
+              <Button
+                type="submit"
+                variant="text"
+                size="small"
+                startIcon={<LogOut size={14} />}
+                sx={{ color: "text.secondary", fontWeight: 500, minWidth: 0 }}
+              >
+                Logout
+              </Button>
+            </form>
+          )}
         </Box>
       </Toolbar>
     </AppBar>

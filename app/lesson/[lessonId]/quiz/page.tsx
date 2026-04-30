@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import { getLessonById } from "@/app/actions/lessons";
 import { getRandomQuizzes } from "@/app/actions/quizzes";
-import { getOrCreateSession } from "@/lib/session";
+import { getSession } from "@/lib/session";
 import QuizClient from "@/components/QuizClient";
 
 interface PageProps {
@@ -13,7 +13,7 @@ export default async function QuizPage({ params }: PageProps) {
   const id = parseInt(lessonId);
   if (isNaN(id)) notFound();
 
-  const sessionId = await getOrCreateSession();
+  const sessionId = (await getSession()) ?? "anonymous";
   const [lesson, quizzes] = await Promise.all([
     getLessonById(id, sessionId),
     getRandomQuizzes(id, 12),

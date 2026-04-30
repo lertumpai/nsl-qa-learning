@@ -5,7 +5,7 @@ import Typography from "@mui/material/Typography";
 import LinearProgress from "@mui/material/LinearProgress";
 import Chip from "@mui/material/Chip";
 import { getLevelBySlug } from "@/app/actions/levels";
-import { getOrCreateSession } from "@/lib/session";
+import { getSession } from "@/lib/session";
 import Navbar from "@/components/Navbar";
 import LessonStepper from "@/components/LessonStepper";
 import LinkButton from "@/components/LinkButton";
@@ -17,8 +17,8 @@ interface PageProps {
 
 export default async function LevelPage({ params }: PageProps) {
   const { levelSlug } = await params;
-  const sessionId = await getOrCreateSession();
-  const level = await getLevelBySlug(levelSlug, sessionId);
+  const sessionId = await getSession();
+  const level = await getLevelBySlug(levelSlug, sessionId ?? undefined);
 
   if (!level) notFound();
 
@@ -31,7 +31,7 @@ export default async function LevelPage({ params }: PageProps) {
 
   return (
     <Box sx={{ minHeight: "100vh", bgcolor: "background.default" }}>
-      <Navbar />
+      <Navbar secret={sessionId ?? undefined} />
 
       {/* Header */}
       <Box
