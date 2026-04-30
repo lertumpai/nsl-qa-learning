@@ -3,9 +3,9 @@ import type { LessonRow } from "../lesson-types";
 export const softwareDevelopmentLifeCycleSdlcLesson: LessonRow = {
   level_slug: "beginner",
   title: "Software Development Life Cycle (SDLC)",
-  description: "Learn the phases of SDLC and where QA fits in",
+  description: "Learn the phases of SDLC, all major models, and where QA fits in",
   step_order: 2,
-  duration_min: 12,
+  duration_min: 15,
   content: `## Software Development Life Cycle (SDLC)
 
 The SDLC is a structured process for planning, creating, testing, and deploying software. Understanding SDLC is essential for QA engineers because it defines **when and how testing is performed**.
@@ -24,36 +24,80 @@ The SDLC is a structured process for planning, creating, testing, and deploying 
 #### Waterfall
 Sequential phases — each phase must complete before the next begins. Testing only starts after development is complete.
 
-**Pros:** Simple to manage, clear milestones
-**Cons:** Late bug discovery, inflexible to change
+**Pros:** Simple to manage, clear milestones, good for fixed-requirement projects
+**Cons:** Late bug discovery, inflexible to change, high cost of rework
+
+**When QA enters:** After coding is complete (Phase 4)
 
 #### Agile
-Iterative sprints (2–4 weeks). Testing happens within every sprint.
+Iterative sprints (1–4 weeks). Testing happens within every sprint, not as a separate phase.
 
-**Pros:** Early and continuous testing, flexible to change
-**Cons:** Requires close collaboration, harder to predict timelines
+**Pros:** Early and continuous testing, flexible to change, fast feedback loops
+**Cons:** Requires close collaboration, harder to predict long-term timelines
+
+**When QA enters:** Day one of every sprint
 
 #### V-Model (Verification & Validation)
-Each development phase has a corresponding testing phase. Testing is planned early even though execution comes later.
+Each development phase has a corresponding testing phase. Testing is planned early even though execution comes later. This makes test planning shift-left while keeping execution structured.
 
 \`\`\`
-Requirements     ←→  Acceptance Testing
+Requirements     ←→  Acceptance Testing (UAT)
 System Design    ←→  System Testing
 Architecture     ←→  Integration Testing
 Coding           ←→  Unit Testing
 \`\`\`
 
-### QA's Role in SDLC
+**Best for:** Safety-critical systems (medical, aviation, banking)
 
-In modern teams, QA is involved from day one:
+#### Spiral Model
+Risk-driven iterative model. Each "spiral" involves planning, risk analysis, engineering, and evaluation. Used when requirements are unclear or the project is high-risk.
 
-- **Requirements phase**: Review specs for ambiguity and testability
-- **Design phase**: Identify test risks early
-- **Development phase**: Write test cases, set up test environments
-- **Testing phase**: Execute and report
-- **Deployment**: Smoke test in production
-- **Maintenance**: Regression testing for every change
+**When QA enters:** Risk analysis and evaluation phases of each spiral
 
+#### DevOps / CI/CD Model
+Continuous integration and deployment. Testing is automated and embedded in the pipeline. Every commit triggers tests, and releases can happen multiple times per day.
+
+**Key concept — Shift-Left:** Moving testing activities earlier in the SDLC to catch defects sooner and reduce cost.
+
+**Key concept — Shift-Right:** Testing in production using monitoring, synthetic checks, canary deployments, and feature flags to learn from real usage.
+
+\`\`\`
+Shift-Left ←──────────────────────────→ Shift-Right
+Requirements → Design → Code → Build → Deploy → Production
+     ↑ Test early                        ↑ Monitor & test live
+\`\`\`
+
+### QA's Role at Each SDLC Phase
+
+**Structured reference**
+
+- **Requirements**: Review specs for ambiguity and testability, identify risks, create test conditions
+- **Design**: Review architecture for testability, identify integration risks
+- **Development**: Write test cases in parallel with development, set up test environments
+- **Testing**: Execute tests, report defects, track progress
+- **Deployment**: Run smoke tests in production, confirm monitoring is active
+- **Maintenance**: Regression testing for every change, monitor production health
+
+### SDLC Model Comparison
+
+**Structured reference**
+
+- **Waterfall**
+  - Testing When: After development complete
+  - Change Flexibility: Low
+  - Best For: Fixed-scope, regulated projects
+- **Agile**
+  - Testing When: Every sprint
+  - Change Flexibility: High
+  - Best For: Products with evolving requirements
+- **V-Model**
+  - Testing When: Planned early, executed per phase
+  - Change Flexibility: Medium
+  - Best For: Safety-critical systems
+- **DevOps/CI**
+  - Testing When: Continuous / automated
+  - Change Flexibility: Very High
+  - Best For: Fast-moving cloud products
 
 ### Real-World Use Cases
 
@@ -85,6 +129,21 @@ The SDLC explains where work is discovered, designed, built, tested, released, a
 - Waiting until code freeze to ask requirement questions.
 - Assuming Agile means no planning or no documentation.
 - Testing only the UI when the risky behavior lives in APIs, queues, services, or databases.
+- Ignoring the production phase — shift-right testing catches issues that staging environments miss.
+
+### Interview Questions
+
+**Q: What is the difference between the Waterfall and Agile SDLC models?**
+Waterfall is sequential — testing starts only after development is complete. Agile is iterative — testing happens inside every sprint alongside development. Waterfall suits fixed-scope projects; Agile suits evolving products.
+
+**Q: What is the V-Model and when would you use it?**
+The V-Model maps each development phase to a corresponding testing phase (unit ↔ coding, integration ↔ architecture, etc.). Test planning starts early even though execution happens later. It is used in safety-critical industries where validation evidence must be documented against each requirement.
+
+**Q: What does shift-left mean in testing?**
+Shift-left means moving testing activities earlier in the SDLC — reviewing requirements, participating in design, writing tests alongside development. The earlier a defect is found, the less expensive it is to fix.
+
+**Q: Where should a QA engineer be involved in the SDLC?**
+From day one. QA should review requirements for clarity and testability, review designs for risk, write test cases in parallel with development, execute tests, run production smoke tests, and monitor post-release metrics.
 
 #### Practice Prompt
 

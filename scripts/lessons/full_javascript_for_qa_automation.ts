@@ -257,7 +257,25 @@ JavaScript becomes powerful when you use it to make tests clearer, more reusable
 - Using unclear variable names like \`data1\`, \`thing\`, or \`res\` when the test needs readable intent.
 - Over-engineering test code with abstractions before patterns are stable.
 
+### Interview Questions
+
+**Q: What is the difference between \`const\` and \`let\` in JavaScript, and which should QA automation use?**
+\`const\` declares a variable whose binding cannot be reassigned; \`let\` can be reassigned. QA automation should default to \`const\` because most test data — selectors, expected values, payloads — should not change after initialization. Using \`const\` makes it immediately obvious when a value is intentionally variable (use \`let\`) versus when it should be fixed (use \`const\`).
+
+**Q: Why is \`await\` so important in automation code and what happens if you forget it?**
+\`await\` pauses execution until an async operation (API call, browser navigation, element wait) resolves. If you forget \`await\` before \`page.click()\` or \`fetch()\`, the test continues immediately without waiting for the action to complete. Assertions then run against the previous state, producing false positives or false negatives — the test appears to pass or fail for the wrong reason. This is one of the most common causes of flaky tests.
+
+**Q: What is a test data factory and why is it better than hardcoded test data?**
+A test data factory is a function that generates test data on demand, typically with unique values (using \`Date.now()\` or faker). It is better than hardcoded data because: (1) unique emails and usernames prevent collisions between parallel test runs, (2) you can override specific fields for each test case while keeping sensible defaults, and (3) if the data schema changes, you update one factory instead of every test.
+
+**Q: How do you handle an API that requires authentication in automated tests?**
+The most common pattern is to call the login API directly (not via UI) in a \`beforeAll\` or setup block to get an auth token, then pass that token in the \`Authorization\` header of subsequent requests. This is faster and more reliable than logging in through the UI for every test, and it separates the authentication concern from the feature being tested.
+
+**Q: What is the difference between \`==\` and \`===\` in JavaScript and why does it matter in tests?**
+\`==\` is loose equality and performs type coercion — \`"0" == 0\` is \`true\`. \`===\` is strict equality — \`"0" === 0\` is \`false\`. Tests must use \`===\` because type coercion can mask bugs: if an API returns \`"200"\` (string) instead of \`200\` (number), loose equality would pass the check but strict equality would correctly fail it.
+
 #### Practice Prompt
 
 Create an array of three invalid signup payloads, then write a function that prints the expected validation message for each payload.`,
 };
+
