@@ -23,6 +23,7 @@ const components: Components = {
         borderBottom: "2px solid",
         borderColor: "primary.light",
         pb: 1,
+        fontSize: { xs: "1.2rem", sm: "1.35rem", md: "1.5rem" },
       }}
     >
       {children}
@@ -38,6 +39,7 @@ const components: Components = {
         mt: 3,
         mb: 1.5,
         color: "text.primary",
+        fontSize: { xs: "1.05rem", sm: "1.15rem", md: "1.25rem" },
       }}
     >
       {children}
@@ -108,12 +110,12 @@ const components: Components = {
     );
   },
   ul: ({ children }) => (
-    <Box component="ul" sx={{ pl: 3, mb: 2, "& li": { mb: 0.5 } }}>
+    <Box component="ul" sx={{ pl: { xs: 2, sm: 3 }, mb: 2, "& li": { mb: 0.5 } }}>
       {children}
     </Box>
   ),
   ol: ({ children }) => (
-    <Box component="ol" sx={{ pl: 3, mb: 2, "& li": { mb: 0.5 } }}>
+    <Box component="ol" sx={{ pl: { xs: 2, sm: 3 }, mb: 2, "& li": { mb: 0.5 } }}>
       {children}
     </Box>
   ),

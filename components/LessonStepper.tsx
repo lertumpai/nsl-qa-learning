@@ -92,7 +92,7 @@ export default function LessonStepper({ lessons, levelColor, levelSlug }: Props)
                 flex: 1,
                 ml: 2,
                 mb: 2,
-                p: 2.5,
+                p: { xs: 2, sm: 2.5 },
                 borderRadius: 3,
                 border: "1.5px solid",
                 borderColor: isCompleted

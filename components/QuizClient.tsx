@@ -104,7 +104,7 @@ export default function QuizClient({ lesson, quizzes, sessionId }: Props) {
           backgroundColor: "background.paper",
           borderBottom: "1px solid",
           borderColor: "divider",
-          px: 3,
+          px: { xs: 2, md: 3 },
           py: 1.5,
         }}
       >
@@ -231,14 +231,14 @@ export default function QuizClient({ lesson, quizzes, sessionId }: Props) {
         )}
 
         {/* Actions */}
-        <Box sx={{ display: "flex", justifyContent: "flex-end", gap: 2 }}>
+        <Box sx={{ display: "flex", justifyContent: { xs: "stretch", sm: "flex-end" }, gap: 2 }}>
           {!revealed ? (
             <Button
               variant="contained"
               size="large"
               onClick={handleReveal}
               disabled={!selectedAnswer}
-              sx={{ px: 4, minWidth: 160 }}
+              sx={{ px: 4, minWidth: { xs: "auto", sm: 160 }, width: { xs: "100%", sm: "auto" } }}
             >
               Check Answer
             </Button>
@@ -248,7 +248,7 @@ export default function QuizClient({ lesson, quizzes, sessionId }: Props) {
               size="large"
               onClick={handleSubmit}
               disabled={submitting}
-              sx={{ px: 4, minWidth: 160 }}
+              sx={{ px: 4, minWidth: { xs: "auto", sm: 160 }, width: { xs: "100%", sm: "auto" } }}
               endIcon={
                 submitting ? (
                   <CircularProgress size={16} sx={{ color: "white" }} />
@@ -265,7 +265,7 @@ export default function QuizClient({ lesson, quizzes, sessionId }: Props) {
               size="large"
               onClick={handleNext}
               endIcon={<ArrowRight size={16} />}
-              sx={{ px: 4, minWidth: 160 }}
+              sx={{ px: 4, minWidth: { xs: "auto", sm: 160 }, width: { xs: "100%", sm: "auto" } }}
             >
               Next Question
             </Button>

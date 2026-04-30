@@ -82,7 +82,7 @@ export default async function LearnPage() {
           </Typography>
 
           {/* Stats */}
-          <Box sx={{ display: "flex", gap: 4, justifyContent: "center", flexWrap: "wrap" }}>
+          <Box sx={{ display: "flex", gap: { xs: 2, md: 4 }, justifyContent: "center", flexWrap: "wrap" }}>
             {[
               { value: levels.length.toString(), label: "Levels" },
               { value: lessonCount.toString(), label: "Lessons" },

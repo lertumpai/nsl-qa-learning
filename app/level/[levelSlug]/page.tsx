@@ -68,7 +68,7 @@ export default async function LevelPage({ params }: PageProps) {
               />
               <Typography
                 variant="h3"
-                sx={{ fontFamily: '"Fira Code", monospace', fontWeight: 700, mb: 1 }}
+                sx={{ fontFamily: '"Fira Code", monospace', fontWeight: 700, mb: 1, fontSize: { xs: "1.75rem", md: "3rem" } }}
               >
                 {level.title}
               </Typography>

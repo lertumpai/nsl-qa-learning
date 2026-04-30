@@ -48,12 +48,12 @@ export default function Navbar({ secret }: NavbarProps) {
           </Typography>
         </Box>
 
-        <Box sx={{ display: "flex", alignItems: "center", gap: 1.5 }}>
+        <Box sx={{ display: "flex", alignItems: "center", gap: { xs: 0.5, sm: 1.5 } }}>
           <Button
             component={Link}
             href="/learn"
             variant="text"
-            sx={{ color: "text.secondary", fontWeight: 500 }}
+            sx={{ color: "text.secondary", fontWeight: 500, display: { xs: "none", sm: "flex" } }}
           >
             Levels
           </Button>
@@ -71,6 +71,7 @@ export default function Navbar({ secret }: NavbarProps) {
                 border: "1px solid",
                 borderColor: "primary.light",
                 maxWidth: 120,
+                display: { xs: "none", sm: "flex" },
               }}
             />
           )}

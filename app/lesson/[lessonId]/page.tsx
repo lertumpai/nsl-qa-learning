@@ -104,6 +104,7 @@ export default async function LessonPage({ params }: PageProps) {
               fontWeight: 700,
               lineHeight: 1.2,
               color: "text.primary",
+              fontSize: { xs: "1.4rem", sm: "2rem", md: "3rem" },
             }}
           >
             {lesson.title}
@@ -131,10 +132,10 @@ export default async function LessonPage({ params }: PageProps) {
         <Box
           sx={{
             display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
+            flexDirection: { xs: "column-reverse", sm: "row" },
+            justifyContent: { xs: "stretch", sm: "space-between" },
+            alignItems: { xs: "stretch", sm: "center" },
             gap: 2,
-            flexWrap: "wrap",
           }}
         >
           {adjacent.prev ? (
@@ -142,12 +143,12 @@ export default async function LessonPage({ params }: PageProps) {
               href={`/lesson/${adjacent.prev.id}`}
               startIcon={<ArrowLeft size={16} />}
               variant="outlined"
-              sx={{ flex: "0 1 auto" }}
+              sx={{ flex: "0 1 auto", width: { xs: "100%", sm: "auto" }, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}
             >
               {adjacent.prev.title}
             </LinkButton>
           ) : (
-            <Box />
+            <Box sx={{ display: { xs: "none", sm: "block" } }} />
           )}
 
           <LinkButton
@@ -155,7 +156,7 @@ export default async function LessonPage({ params }: PageProps) {
             variant="contained"
             size="large"
             endIcon={<ArrowRight size={16} />}
-            sx={{ px: 4, py: 1.5 }}
+            sx={{ px: 4, py: 1.5, width: { xs: "100%", sm: "auto" } }}
           >
             {lesson.completed ? "Retake Quiz" : "Start Quiz"}
           </LinkButton>
