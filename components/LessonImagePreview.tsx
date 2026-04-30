@@ -104,11 +104,13 @@ export default function LessonImagePreview({ src, alt }: Props) {
         onClose={() => setOpen(false)}
         maxWidth="lg"
         fullWidth
-        PaperProps={{
-          sx: {
-            bgcolor: "transparent",
-            boxShadow: "none",
-            overflow: "visible",
+        slotProps={{
+          paper: {
+            sx: {
+              bgcolor: "transparent",
+              boxShadow: "none",
+              overflow: "visible",
+            },
           },
         }}
       >
