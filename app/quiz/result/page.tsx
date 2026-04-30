@@ -1,8 +1,7 @@
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
-import Button from "@mui/material/Button";
-import Link from "next/link";
+import LinkButton from "@/components/LinkButton";
 import { ArrowLeft } from "lucide-react";
 import QuizResultClient from "@/components/QuizResultClient";
 
@@ -17,9 +16,9 @@ export default async function QuizResultPage({ searchParams }: PageProps) {
     return (
       <Box sx={{ minHeight: "100vh", display: "flex", alignItems: "center", justifyContent: "center", flexDirection: "column", gap: 2 }}>
         <Typography variant="h5">No quiz result found.</Typography>
-        <Button component={Link} href="/" startIcon={<ArrowLeft size={16} />} variant="contained">
+        <LinkButton href="/" startIcon={<ArrowLeft size={16} />} variant="contained">
           Back to Home
-        </Button>
+        </LinkButton>
       </Box>
     );
   }

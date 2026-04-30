@@ -1,9 +1,8 @@
 import { notFound } from "next/navigation";
-import Link from "next/link";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
-import Button from "@mui/material/Button";
+import LinkButton from "@/components/LinkButton";
 import Chip from "@mui/material/Chip";
 import LinearProgress from "@mui/material/LinearProgress";
 import { getLessonById, getAdjacentLessons } from "@/app/actions/lessons";
@@ -50,8 +49,7 @@ export default async function LessonPage({ params }: PageProps) {
       <Container maxWidth="md" sx={{ py: { xs: 4, md: 6 } }}>
         {/* Breadcrumb */}
         <Box sx={{ display: "flex", alignItems: "center", gap: 1, mb: 4 }}>
-          <Button
-            component={Link}
+          <LinkButton
             href={`/level/${lesson.level_slug}`}
             startIcon={<ArrowLeft size={14} />}
             variant="text"
@@ -59,7 +57,7 @@ export default async function LessonPage({ params }: PageProps) {
             sx={{ color: "text.secondary" }}
           >
             {lesson.level_title}
-          </Button>
+          </LinkButton>
           <Typography color="text.secondary" variant="body2">
             /
           </Typography>
@@ -135,21 +133,19 @@ export default async function LessonPage({ params }: PageProps) {
           }}
         >
           {adjacent.prev ? (
-            <Button
-              component={Link}
+            <LinkButton
               href={`/lesson/${adjacent.prev.id}`}
               startIcon={<ArrowLeft size={16} />}
               variant="outlined"
               sx={{ flex: "0 1 auto" }}
             >
               {adjacent.prev.title}
-            </Button>
+            </LinkButton>
           ) : (
             <Box />
           )}
 
-          <Button
-            component={Link}
+          <LinkButton
             href={`/lesson/${lesson.id}/quiz`}
             variant="contained"
             size="large"
@@ -157,7 +153,7 @@ export default async function LessonPage({ params }: PageProps) {
             sx={{ px: 4, py: 1.5 }}
           >
             {lesson.completed ? "Retake Quiz" : "Start Quiz"}
-          </Button>
+          </LinkButton>
         </Box>
       </Container>
     </Box>

@@ -4,13 +4,12 @@ import Container from "@mui/material/Container";
 import Typography from "@mui/material/Typography";
 import LinearProgress from "@mui/material/LinearProgress";
 import Chip from "@mui/material/Chip";
-import Button from "@mui/material/Button";
 import { getLevelBySlug } from "@/app/actions/levels";
 import { getOrCreateSession } from "@/lib/session";
 import Navbar from "@/components/Navbar";
 import LessonStepper from "@/components/LessonStepper";
+import LinkButton from "@/components/LinkButton";
 import { ArrowLeft } from "lucide-react";
-import Link from "next/link";
 
 interface PageProps {
   params: Promise<{ levelSlug: string }>;
@@ -44,15 +43,14 @@ export default async function LevelPage({ params }: PageProps) {
         }}
       >
         <Container maxWidth="lg">
-          <Button
-            component={Link}
+          <LinkButton
             href="/"
             startIcon={<ArrowLeft size={16} />}
             variant="text"
             sx={{ mb: 3, color: "text.secondary" }}
           >
             All Levels
-          </Button>
+          </LinkButton>
 
           <Box sx={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", flexWrap: "wrap", gap: 3 }}>
             <Box>
@@ -80,8 +78,7 @@ export default async function LevelPage({ params }: PageProps) {
             </Box>
 
             {resumeLesson && (
-              <Button
-                component={Link}
+              <LinkButton
                 href={`/lesson/${resumeLesson.id}`}
                 variant="contained"
                 size="large"
@@ -93,7 +90,7 @@ export default async function LevelPage({ params }: PageProps) {
                 }}
               >
                 {completedCount > 0 ? "Resume" : "Start Learning"}
-              </Button>
+              </LinkButton>
             )}
           </Box>
 
