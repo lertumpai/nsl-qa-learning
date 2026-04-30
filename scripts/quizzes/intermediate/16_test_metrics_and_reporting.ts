@@ -2,7 +2,7 @@ import type { QuizRow } from "../../quiz-types";
 
 export const testMetricsAndReportingQuizzes: QuizRow[] = [
   {
-    lesson_title: "Test Metrics and Reporting",
+    lesson_title: "Test Metrics & Reporting",
     question: "What is test coverage in QA?",
     option_a: "The number of developers on the team",
     option_b: "The percentage of code paths or requirements tested by test cases",
@@ -12,7 +12,7 @@ export const testMetricsAndReportingQuizzes: QuizRow[] = [
     explanation: "Test coverage measures what proportion of the code or requirements are exercised by tests. For example, 80% code coverage means 80% of lines are executed by tests.",
   },
   {
-    lesson_title: "Test Metrics and Reporting",
+    lesson_title: "Test Metrics & Reporting",
     question: "Why is a test dashboard important?",
     option_a: "It makes tests run faster",
     option_b: "It visualizes test results and trends in real-time, enabling quick identification of issues and stakeholder communication",
@@ -22,7 +22,7 @@ export const testMetricsAndReportingQuizzes: QuizRow[] = [
     explanation: "A test dashboard provides real-time visibility into test health, pass/fail rates, and trends, enabling quick decision-making and stakeholder communication.",
   },
   {
-    lesson_title: "Test Metrics and Reporting",
+    lesson_title: "Test Metrics & Reporting",
     question: "What does a flaky test mean?",
     option_a: "A test that always fails",
     option_b: "A test that passes sometimes and fails other times without code changes",
@@ -32,7 +32,7 @@ export const testMetricsAndReportingQuizzes: QuizRow[] = [
     explanation: "A flaky test is unreliable and passes sometimes but fails at other times despite no changes to the code. It's often caused by timing issues or external dependencies.",
   },
   {
-    lesson_title: "Test Metrics and Reporting",
+    lesson_title: "Test Metrics & Reporting",
     question: "What metric is most useful for tracking test execution trends over time?",
     option_a: "The exact number of tests",
     option_b: "Pass/fail rate percentage and test execution time trends over multiple releases",
@@ -42,7 +42,7 @@ export const testMetricsAndReportingQuizzes: QuizRow[] = [
     explanation: "Tracking pass/fail rate percentages and execution time trends over time reveals patterns and regressions, enabling data-driven decisions about code quality.",
   },
   {
-    lesson_title: "Test Metrics and Reporting",
+    lesson_title: "Test Metrics & Reporting",
     question: "How should test results be reported to stakeholders?",
     option_a: "Only report failures",
     option_b: "Provide a clear summary with pass/fail counts, coverage, open bugs, and risk assessment in language stakeholders understand",
@@ -52,7 +52,7 @@ export const testMetricsAndReportingQuizzes: QuizRow[] = [
     explanation: "Effective reporting translates technical test data into business-friendly summaries showing test health, risk, and release readiness, enabling informed stakeholder decisions.",
   },
   {
-    lesson_title: "Test Metrics and Reporting",
+    lesson_title: "Test Metrics & Reporting",
     question: "At sprint end: 85% pass rate, 12 open bugs (2 critical). How do you present this to the product owner for a release decision?",
     option_a: "Say 'testing is done' without context",
     option_b: "Report: 85% pass (X/Y cases), 12 bugs open (2 Critical — block specific flows, 10 Medium/Low with workarounds), recommendation: hold release until 2 Critical are resolved",
@@ -62,7 +62,7 @@ export const testMetricsAndReportingQuizzes: QuizRow[] = [
     explanation: "Give the PO data to make a decision: coverage achieved, bug breakdown by severity, specific business impact of the 2 critical bugs, and a clear QA recommendation. The PO decides — you provide clarity.",
   },
   {
-    lesson_title: "Test Metrics and Reporting",
+    lesson_title: "Test Metrics & Reporting",
     question: "What is 'defect density'?",
     option_a: "How tightly packed bugs are in a single file",
     option_b: "The number of defects per unit of size (e.g., bugs per 1000 lines of code or bugs per feature) — indicates code quality of a module",
@@ -72,7 +72,7 @@ export const testMetricsAndReportingQuizzes: QuizRow[] = [
     explanation: "Defect density helps identify problem areas: a module with 15 bugs per KLOC vs. 2 bugs per KLOC signals where technical debt or complexity is highest. Use it to prioritize QA attention and code review effort.",
   },
   {
-    lesson_title: "Test Metrics and Reporting",
+    lesson_title: "Test Metrics & Reporting",
     question: "Your automated suite has 30% flaky tests. How does this affect your metrics and what do you do?",
     option_a: "Ignore it — flaky tests are expected in automation",
     option_b: "Flaky tests pollute pass/fail metrics (false failures), erode team trust in CI, and must be fixed or quarantined. Treat flaky tests as bugs — track, fix, or remove them",
@@ -82,7 +82,7 @@ export const testMetricsAndReportingQuizzes: QuizRow[] = [
     explanation: "30% flakiness destroys CI reliability. Solutions: investigate each flaky test (timing? external dependency? test data conflict?), fix root causes, quarantine those that can't be fixed immediately, and track the fix rate as a metric.",
   },
   {
-    lesson_title: "Test Metrics and Reporting",
+    lesson_title: "Test Metrics & Reporting",
     question: "What is 'test execution rate'?",
     option_a: "How fast each individual test runs",
     option_b: "The percentage of planned test cases that have actually been executed in the current cycle",
@@ -92,7 +92,7 @@ export const testMetricsAndReportingQuizzes: QuizRow[] = [
     explanation: "Test execution rate = (executed tests / total planned tests) × 100. If 80% are executed, 20% remain — these could be blocked, not started, or descoped. It measures testing progress against the plan.",
   },
   {
-    lesson_title: "Test Metrics and Reporting",
+    lesson_title: "Test Metrics & Reporting",
     question: "A stakeholder says '100% test pass rate means the software has no bugs.' How do you respond?",
     option_a: "Agree — 100% pass rate is the ultimate quality signal",
     option_b: "Explain: 100% pass rate only means all tests that were written passed — it says nothing about untested scenarios, missing test coverage, or bugs that no test case covers",
@@ -102,7 +102,7 @@ export const testMetricsAndReportingQuizzes: QuizRow[] = [
     explanation: "Test coverage is not 100% — tests can only find bugs they're designed to find. 100% pass rate with 40% coverage means 60% of code is untested. The quality of what's not tested is unknown.",
   },
   {
-    lesson_title: "Test Metrics and Reporting",
+    lesson_title: "Test Metrics & Reporting",
     question: "What is code coverage and what is its main limitation as a quality metric?",
     option_a: "Code coverage is a perfect indicator of quality",
     option_b: "Code coverage measures which code lines are executed by tests — its limitation is that 100% coverage can still miss bugs if test assertions are weak or scenarios are incomplete",
@@ -112,7 +112,7 @@ export const testMetricsAndReportingQuizzes: QuizRow[] = [
     explanation: "100% code coverage means every line ran — not that every behavior was verified. A test that calls a function but never asserts the result still adds coverage but catches nothing. Coverage is necessary but not sufficient for quality.",
   },
   {
-    lesson_title: "Test Metrics and Reporting",
+    lesson_title: "Test Metrics & Reporting",
     question: "Defect leakage rate increased from 2% to 8% this quarter. What do you investigate?",
     option_a: "Assume it's normal variation",
     option_b: "Investigate: what types of bugs are leaking, which features had the most leakage, were test cases inadequate, was testing time compressed, or did the codebase change significantly?",
@@ -122,7 +122,7 @@ export const testMetricsAndReportingQuizzes: QuizRow[] = [
     explanation: "A 4x increase in leakage is a significant signal. Root cause analysis: pattern the leaked bugs (new feature area? same module?), review their test coverage (were they in scope?), and check process changes (compressed testing? new dev practices?).",
   },
   {
-    lesson_title: "Test Metrics and Reporting",
+    lesson_title: "Test Metrics & Reporting",
     question: "What is 'mean time to resolution' (MTTR) for defects?",
     option_a: "The average time to write a test case",
     option_b: "The average time from a bug being reported to it being verified as fixed — indicates development team responsiveness to quality issues",
@@ -132,7 +132,7 @@ export const testMetricsAndReportingQuizzes: QuizRow[] = [
     explanation: "Low MTTR = bugs are fixed quickly. High MTTR = bugs linger and accumulate (bug debt). Track MTTR by severity: Critical bugs should have MTTR < 1 day; Medium < 1 week. Trending MTTR reveals process health.",
   },
   {
-    lesson_title: "Test Metrics and Reporting",
+    lesson_title: "Test Metrics & Reporting",
     question: "You're building a QA dashboard for leadership. What 5 metrics would you include and why?",
     option_a: "Number of test cases, test execution speed, number of testers, bug count, and lines of code",
     option_b: "Pass/fail rate (release health), defect leakage rate (escaped bugs), test coverage % (risk visibility), MTTR (process responsiveness), and automation coverage (sustainability)",
@@ -142,7 +142,7 @@ export const testMetricsAndReportingQuizzes: QuizRow[] = [
     explanation: "Leadership cares about quality outcomes: pass rate (is the product healthy?), leakage (are we catching issues?), coverage (where are the risks?), MTTR (how responsive is the team?), automation (is quality scalable?). Each tells a different quality story.",
   },
   {
-    lesson_title: "Test Metrics and Reporting",
+    lesson_title: "Test Metrics & Reporting",
     question: "What is the 'cost of quality' and what are its two components?",
     option_a: "The total QA team salary",
     option_b: "Cost of quality = cost of conformance (prevention + appraisal activities to avoid defects) + cost of non-conformance (internal failures like rework + external failures like production incidents)",

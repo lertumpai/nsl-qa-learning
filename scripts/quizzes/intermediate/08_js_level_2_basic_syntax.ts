@@ -2,7 +2,7 @@ import type { QuizRow } from "../../quiz-types";
 
 export const jsLevel2BasicSyntaxQuizzes: QuizRow[] = [
   {
-    lesson_title: "JavaScript Level 2: Basic Syntax",
+    lesson_title: "JavaScript Level 2: Basic Syntax and Patterns",
     question: "What is an array in JavaScript?",
     option_a: "A single value stored in memory",
     option_b: "An ordered collection of multiple values accessed by index",
@@ -12,7 +12,7 @@ export const jsLevel2BasicSyntaxQuizzes: QuizRow[] = [
     explanation: "An array stores multiple values in a specific order. Each value is accessed by its index starting from 0. For example, `[1, 2, 3]` has 3 elements at indices 0, 1, and 2.",
   },
   {
-    lesson_title: "JavaScript Level 2: Basic Syntax",
+    lesson_title: "JavaScript Level 2: Basic Syntax and Patterns",
     question: "How do you access the first element of an array in JavaScript?",
     option_a: "array[1]",
     option_b: "array.first()",
@@ -22,7 +22,7 @@ export const jsLevel2BasicSyntaxQuizzes: QuizRow[] = [
     explanation: "JavaScript arrays are zero-indexed, meaning the first element is at index 0. So `array[0]` accesses the first element.",
   },
   {
-    lesson_title: "JavaScript Level 2: Basic Syntax",
+    lesson_title: "JavaScript Level 2: Basic Syntax and Patterns",
     question: "What is an object in JavaScript?",
     option_a: "A collection of unrelated values",
     option_b: "A collection of key-value pairs where each key maps to a value",
@@ -32,7 +32,7 @@ export const jsLevel2BasicSyntaxQuizzes: QuizRow[] = [
     explanation: "Objects store data as key-value pairs. For example, `{ name: 'John', age: 30 }` has two key-value pairs accessed via `object.name` or `object['name']`.",
   },
   {
-    lesson_title: "JavaScript Level 2: Basic Syntax",
+    lesson_title: "JavaScript Level 2: Basic Syntax and Patterns",
     question: "What is the purpose of a function in QA automation?",
     option_a: "To make the code more confusing",
     option_b: "To organize reusable code that can be called multiple times",
@@ -42,7 +42,7 @@ export const jsLevel2BasicSyntaxQuizzes: QuizRow[] = [
     explanation: "Functions encapsulate reusable code logic. In QA, you write functions to perform common actions like login, navigate, or validate, making tests maintainable and reducing duplication.",
   },
   {
-    lesson_title: "JavaScript Level 2: Basic Syntax",
+    lesson_title: "JavaScript Level 2: Basic Syntax and Patterns",
     question: "What does a loop do in JavaScript?",
     option_a: "It creates a variable",
     option_b: "It repeats a block of code multiple times",
@@ -52,7 +52,7 @@ export const jsLevel2BasicSyntaxQuizzes: QuizRow[] = [
     explanation: "Loops repeat code blocks. In QA, loops test multiple items (e.g., `for` loop through array of usernames) or repeat actions without duplication.",
   },
   {
-    lesson_title: "JavaScript Level 2: Basic Syntax",
+    lesson_title: "JavaScript Level 2: Basic Syntax and Patterns",
     question: "You have `const emails = ['a@test.com', 'b@test.com', 'c@test.com']`. How do you get the number of emails?",
     option_a: "emails.size()",
     option_b: "emails.count",
@@ -62,7 +62,7 @@ export const jsLevel2BasicSyntaxQuizzes: QuizRow[] = [
     explanation: "`.length` is a built-in array property that returns the number of elements. It's commonly used in test assertions like `expect(results.length).toBe(3)` to verify a correct number of results.",
   },
   {
-    lesson_title: "JavaScript Level 2: Basic Syntax",
+    lesson_title: "JavaScript Level 2: Basic Syntax and Patterns",
     question: "What does `array.push()` do?",
     option_a: "Removes the last element from the array",
     option_b: "Adds one or more elements to the end of the array",
@@ -72,7 +72,7 @@ export const jsLevel2BasicSyntaxQuizzes: QuizRow[] = [
     explanation: "`push()` adds elements to the end. In test code, it's used to build up collections of test data dynamically — e.g., accumulating API response IDs for later cleanup.",
   },
   {
-    lesson_title: "JavaScript Level 2: Basic Syntax",
+    lesson_title: "JavaScript Level 2: Basic Syntax and Patterns",
     question: "You want to log every product name from `const products = ['shirt', 'hat', 'pants']`. Which loop structure do you use?",
     option_a: "A while loop with a counter",
     option_b: "A `for...of` loop: `for (const product of products) { console.log(product); }`",
@@ -82,7 +82,7 @@ export const jsLevel2BasicSyntaxQuizzes: QuizRow[] = [
     explanation: "`for...of` is the cleanest way to iterate over array values directly. In test automation, it's ideal for iterating over test data sets or API response items without managing index manually.",
   },
   {
-    lesson_title: "JavaScript Level 2: Basic Syntax",
+    lesson_title: "JavaScript Level 2: Basic Syntax and Patterns",
     question: "What does `array.filter()` return?",
     option_a: "The first matching element",
     option_b: "A new array containing only the elements that pass the test condition",
@@ -92,7 +92,7 @@ export const jsLevel2BasicSyntaxQuizzes: QuizRow[] = [
     explanation: "`filter()` returns a new array. In QA: `results.filter(r => r.status === 'failed')` gives you only failed results — useful for analyzing test output.",
   },
   {
-    lesson_title: "JavaScript Level 2: Basic Syntax",
+    lesson_title: "JavaScript Level 2: Basic Syntax and Patterns",
     question: "Given `const user = { name: 'Alice', role: 'admin' }`, write a condition to check if the role is 'admin'.",
     option_a: "user['role'] == admin",
     option_b: "user.role === 'admin'",
@@ -102,7 +102,7 @@ export const jsLevel2BasicSyntaxQuizzes: QuizRow[] = [
     explanation: "`user.role === 'admin'` uses dot notation to access the `role` property and strict equality to compare. This pattern is foundational in API test assertions: `response.data.user.role === 'admin'`.",
   },
   {
-    lesson_title: "JavaScript Level 2: Basic Syntax",
+    lesson_title: "JavaScript Level 2: Basic Syntax and Patterns",
     question: "What does `array.map()` do and what does it return?",
     option_a: "Searches the array and returns the first match",
     option_b: "Creates a new array by transforming each element with a callback function",
@@ -112,7 +112,7 @@ export const jsLevel2BasicSyntaxQuizzes: QuizRow[] = [
     explanation: "`map()` transforms each element and returns a new array of the same length. In QA: `users.map(u => u.id)` extracts just the IDs from an array of user objects — useful for creating assertions.",
   },
   {
-    lesson_title: "JavaScript Level 2: Basic Syntax",
+    lesson_title: "JavaScript Level 2: Basic Syntax and Patterns",
     question: "You need to group test results by status. Which JavaScript data structure best represents `{ pass: 8, fail: 2 }`?",
     option_a: "An array: `['pass', 8, 'fail', 2]`",
     option_b: "An object: `{ pass: 8, fail: 2 }` — key-value pairs mapping status to count",
@@ -122,7 +122,7 @@ export const jsLevel2BasicSyntaxQuizzes: QuizRow[] = [
     explanation: "Objects are ideal for key-value groupings. Accessing counts is clean: `results.pass` or `results['fail']`. Arrays would require index knowledge to navigate.",
   },
   {
-    lesson_title: "JavaScript Level 2: Basic Syntax",
+    lesson_title: "JavaScript Level 2: Basic Syntax and Patterns",
     question: "What is destructuring in JavaScript?",
     option_a: "Removing properties from an object permanently",
     option_b: "A syntax to extract values from arrays or objects into variables in a single statement",
@@ -132,7 +132,7 @@ export const jsLevel2BasicSyntaxQuizzes: QuizRow[] = [
     explanation: "Destructuring: `const { status, body } = response` extracts `status` and `body` from the response object. In test code it makes deeply nested API responses easier to work with.",
   },
   {
-    lesson_title: "JavaScript Level 2: Basic Syntax",
+    lesson_title: "JavaScript Level 2: Basic Syntax and Patterns",
     question: "Write a JavaScript condition that returns true if an HTTP status code is in the 2xx success range (200–299).",
     option_a: "`status === 200`",
     option_b: "`status >= 200 && status <= 299`",
@@ -142,7 +142,7 @@ export const jsLevel2BasicSyntaxQuizzes: QuizRow[] = [
     explanation: "`status >= 200 && status <= 299` correctly covers all 2xx codes including 200 itself. Option C excludes 200. Option D uses string comparison which won't work with a numeric status code.",
   },
   {
-    lesson_title: "JavaScript Level 2: Basic Syntax",
+    lesson_title: "JavaScript Level 2: Basic Syntax and Patterns",
     question: "What does the spread operator (`...`) do when used with an array?",
     option_a: "Multiplies all elements together",
     option_b: "Creates a shallow copy or spreads the array's elements into a new context",
