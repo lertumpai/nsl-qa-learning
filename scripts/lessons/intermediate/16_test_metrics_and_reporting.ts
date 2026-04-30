@@ -4,7 +4,7 @@ export const testMetricsAndReportingLesson: LessonRow = {
   level_slug: "intermediate",
   title: "Test Metrics & Reporting",
   description: "Measure and communicate testing effectiveness to drive decisions",
-  step_order: 11,
+  step_order: 14,
   duration_min: 15,
   content: `## Test Metrics & Reporting
 

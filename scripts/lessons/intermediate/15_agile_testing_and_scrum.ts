@@ -4,7 +4,7 @@ export const agileTestingAndScrumLesson: LessonRow = {
   level_slug: "intermediate",
   title: "Agile Testing & Scrum",
   description: "Test effectively in Agile sprints with Scrum ceremonies",
-  step_order: 10,
+  step_order: 13,
   duration_min: 15,
   content: `## Agile Testing & Scrum
 
