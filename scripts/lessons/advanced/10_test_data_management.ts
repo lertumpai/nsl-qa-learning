@@ -6,6 +6,7 @@ export const testDataManagementLesson: LessonRow = {
   description: "Build factories, mask PII, and manage test data at scale reliably",
   step_order: 10,
   duration_min: 15,
+  image: "/lessons/advanced/10_test_data_management.png",
   content: `## Test Data Management
 
 Test data management is one of the most underrated skills in QA. Poor test data is the #1 cause of flaky tests, data pollution in shared environments, and privacy violations that put real users at risk. A systematic data strategy transforms unreliable tests into a trustworthy regression suite.

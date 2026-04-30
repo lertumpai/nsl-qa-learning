@@ -6,6 +6,7 @@ export const ciCdPipelineIntegrationLesson: LessonRow = {
   description: "Integrate tests into GitHub Actions pipelines with quality gates and parallelism",
   step_order: 6,
   duration_min: 18,
+  image: "/lessons/advanced/06_ci_cd_pipeline_integration.png",
   content: `## CI/CD Pipeline Integration
 
 Continuous Integration (CI) runs tests automatically on every code change. This is the foundation of shift-left testing — defects are caught within minutes of being introduced rather than days or weeks later. A well-designed pipeline turns testing from a bottleneck into a velocity multiplier.

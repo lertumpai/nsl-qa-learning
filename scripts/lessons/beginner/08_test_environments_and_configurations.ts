@@ -6,6 +6,7 @@ export const testEnvironmentsAndConfigurationsLesson: LessonRow = {
   description: "Set up and manage environments for reliable, reproducible testing",
   step_order: 8,
   duration_min: 12,
+  image: "/lessons/beginner/08_test_environments_and_configurations.png",
   content: `## Test Environments & Configurations
 
 A test environment is a controlled setup of hardware, software, network, and data used for testing. Environment issues are one of the most common causes of flaky tests and false failures.
