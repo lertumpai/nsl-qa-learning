@@ -8,6 +8,8 @@
     "start": "next start",
     "lint": "next lint",
     "migrate": "tsx scripts/migrate.ts",
+    "migrate:schema": "tsx scripts/migrate-schema.ts",
+    "migrate:lessons": "tsx scripts/migrate-lessons.ts",
     "seed": "tsx scripts/seed-quizzes.ts"
   },
   "dependencies": {

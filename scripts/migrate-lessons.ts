@@ -1,23 +1,21 @@
 import "dotenv/config";
 import { Pool } from "pg";
-import { migrateSchema } from "./migrations/schema";
 import { migrateLessonData } from "./migrations/lesson-data";
 
 const pool = new Pool({ connectionString: process.env.DATABASE_URL });
 
-async function migrate() {
+async function migrateLessonsOnly() {
   const client = await pool.connect();
   try {
     await client.query("BEGIN");
 
-    await migrateSchema(client);
     await migrateLessonData(client);
 
     await client.query("COMMIT");
-    console.log("✅ Migration complete — schema, levels, and lessons migrated.");
+    console.log("✅ Lesson data migration complete.");
   } catch (err) {
     await client.query("ROLLBACK");
-    console.error("❌ Migration failed:", err);
+    console.error("❌ Lesson data migration failed:", err);
     throw err;
   } finally {
     client.release();
@@ -25,4 +23,4 @@ async function migrate() {
   }
 }
 
-migrate();
+migrateLessonsOnly();
