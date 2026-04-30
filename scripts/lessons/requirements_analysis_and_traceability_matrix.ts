@@ -27,24 +27,48 @@ Look for these signals in requirements:
 
 ### Types of Requirements
 
-| Type | Description | Example |
-|------|-------------|---------|
-| **Functional** | What the system must do | User can reset password via email |
-| **Non-functional** | How the system must perform | Login must respond in < 300ms |
-| **Business** | Business goals and rules | Users on free tier see ads |
-| **Technical** | Implementation constraints | Must use PostgreSQL 15+ |
+
+**Structured reference**
+
+- **Functional**
+  - Description: What the system must do
+  - Example: User can reset password via email
+- **Non-functional**
+  - Description: How the system must perform
+  - Example: Login must respond in < 300ms
+- **Business**
+  - Description: Business goals and rules
+  - Example: Users on free tier see ads
+- **Technical**
+  - Description: Implementation constraints
+  - Example: Must use PostgreSQL 15+
+
 
 ### Requirement Traceability Matrix (RTM)
 
 An RTM maps requirements → test cases, ensuring every requirement is covered.
 
 \`\`\`
-| Req ID | Requirement | Test Case IDs | Status |
-|--------|-------------|---------------|--------|
-| REQ-001 | User can register with email | TC-001, TC-002, TC-003 | Covered |
-| REQ-002 | Email must be unique | TC-004, TC-005 | Covered |
-| REQ-003 | Password min 8 chars | TC-006, TC-007 | Covered |
-| REQ-004 | 2FA via SMS | — | NOT COVERED |
+
+**Structured reference**
+
+- **REQ-001**
+  - Requirement: User can register with email
+  - Test Case IDs: TC-001, TC-002, TC-003
+  - Status: Covered
+- **REQ-002**
+  - Requirement: Email must be unique
+  - Test Case IDs: TC-004, TC-005
+  - Status: Covered
+- **REQ-003**
+  - Requirement: Password min 8 chars
+  - Test Case IDs: TC-006, TC-007
+  - Status: Covered
+- **REQ-004**
+  - Requirement: 2FA via SMS
+  - Test Case IDs: —
+  - Status: NOT COVERED
+
 \`\`\`
 
 ### Types of Traceability
@@ -58,5 +82,41 @@ An RTM maps requirements → test cases, ensuring every requirement is covered.
 1. Ensures **100% requirement coverage**
 2. Identifies **gaps** in test coverage before execution
 3. Provides evidence for **compliance and audits**
-4. Helps assess **impact of requirement changes**`,
+4. Helps assess **impact of requirement changes**
+
+
+### Real-World Use Cases
+
+#### Case 1: Clarifying vague requirements
+
+The requirement says the page should load quickly. QA asks for measurable acceptance criteria such as p95 page load below two seconds on broadband.
+
+#### Case 2: Traceability for password reset
+
+REQ-01 maps to valid reset, expired token, reused token, unknown email, and password complexity test cases.
+
+#### Case 3: Change impact analysis
+
+When password rules change, QA uses the RTM to find every affected test case and update regression coverage.
+
+### How to Apply This in Real QA Work
+
+Requirement analysis is where QA prevents defects before they exist. A traceability matrix then proves that each requirement has corresponding test coverage.
+
+#### Practical Workflow
+
+- Read requirements for clarity, consistency, completeness, testability, and hidden assumptions.
+- Convert vague words such as fast, user-friendly, secure, and should into measurable acceptance criteria.
+- Map each requirement to one or more test cases and each test case back to a requirement.
+- Use RTM gaps to start conversations before release pressure makes missing coverage expensive.
+
+#### Common Mistakes to Avoid
+
+- Accepting ambiguous requirements because everyone thinks they understand them.
+- Creating test cases that are not linked to any requirement or business risk.
+- Treating the RTM as paperwork instead of a coverage and change-impact tool.
+
+#### Practice Prompt
+
+Rewrite the requirement The app should be fast into measurable criteria for page load and API response time.`,
 };

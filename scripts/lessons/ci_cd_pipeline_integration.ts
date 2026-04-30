@@ -147,5 +147,41 @@ Always generate and archive test reports:
   playwright-report/
   coverage/
   retention-days: 30
-\`\`\``,
+\`\`\`
+
+
+### Real-World Use Cases
+
+#### Case 1: Pull request feedback
+
+A PR triggers lint, type check, unit tests, and API smoke tests so developers get feedback before merging.
+
+#### Case 2: Deployment quality gate
+
+Staging deployment cannot proceed to production unless smoke tests pass and no critical vulnerabilities are found.
+
+#### Case 3: Parallel E2E execution
+
+The team splits browser tests across workers to reduce pipeline time while preserving failure artifacts for debugging.
+
+### How to Apply This in Real QA Work
+
+CI/CD turns testing into automatic feedback on every change. The pipeline should catch regressions quickly and provide enough evidence for developers to fix failures without guesswork.
+
+#### Practical Workflow
+
+- Run fast checks first: lint, type checks, unit tests, and smoke API tests.
+- Place slower integration, UI, performance, and security checks at the right stage based on cost and risk.
+- Use quality gates for critical criteria such as test pass rate, coverage thresholds, severe vulnerabilities, or performance budgets.
+- Publish reports, logs, screenshots, traces, and artifacts so failures are actionable.
+
+#### Common Mistakes to Avoid
+
+- Putting all tests in one slow pipeline stage.
+- Allowing flaky tests to block releases without urgent ownership.
+- Failing the build without preserving enough diagnostics to understand why.
+
+#### Practice Prompt
+
+Sketch a CI pipeline with fast feedback, integration tests, E2E tests, and release gates.`,
 };

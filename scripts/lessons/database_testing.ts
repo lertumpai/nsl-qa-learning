@@ -91,5 +91,41 @@ SELECT * FROM orders WHERE user_id = 123; -- Should return 0 rows
 - **psql / pgAdmin**: Direct database access
 - **DBeaver**: Multi-database GUI client
 - **Postman**: Assert database state via API responses
-- **Custom scripts**: Python/Node scripts to validate data sets`,
+- **Custom scripts**: Python/Node scripts to validate data sets
+
+
+### Real-World Use Cases
+
+#### Case 1: Profile update persistence
+
+After editing a profile, QA verifies the UI, API response, and database row all contain the expected normalized values.
+
+#### Case 2: Constraint validation
+
+QA checks that duplicate emails are rejected by both application validation and database unique constraints.
+
+#### Case 3: Cascade delete behavior
+
+When a test account is deleted, QA verifies whether related sessions, orders, and preferences are deleted, archived, or retained according to rules.
+
+### How to Apply This in Real QA Work
+
+Database testing verifies that application behavior is correctly persisted, constrained, queried, and protected. Many bugs that look like UI issues are actually data issues.
+
+#### Practical Workflow
+
+- Check inserts, updates, deletes, joins, constraints, defaults, indexes, and cascade behavior.
+- Compare UI or API results with database records when investigating persistence bugs.
+- Use isolated test data and avoid modifying shared or production data.
+- Verify audit fields, timestamps, ownership, soft deletes, and data migrations when relevant.
+
+#### Common Mistakes to Avoid
+
+- Using SELECT checks only and never testing constraints or invalid data.
+- Assuming a saved UI value means the database stored the correct normalized value.
+- Running destructive SQL in the wrong environment.
+
+#### Practice Prompt
+
+For a user profile update, list the database fields you would verify after saving changes.`,
 };

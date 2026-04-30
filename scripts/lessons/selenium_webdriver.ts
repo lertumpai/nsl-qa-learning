@@ -109,5 +109,41 @@ WebDriver driver = new FirefoxDriver();
 WebDriver driver = new SafariDriver();
 \`\`\`
 
-Use **Selenium Grid** or **BrowserStack** for parallel cross-browser execution.`,
+Use **Selenium Grid** or **BrowserStack** for parallel cross-browser execution.
+
+
+### Real-World Use Cases
+
+#### Case 1: Cross-browser checkout
+
+QA uses Selenium to verify checkout works in Chrome, Firefox, and Edge because browser-specific issues can affect forms and payment redirects.
+
+#### Case 2: Explicit wait use
+
+After clicking Submit, the test waits until the success message is visible instead of sleeping for five seconds.
+
+#### Case 3: Page Object Model
+
+Login locators and actions live in a LoginPage object so a button selector change is fixed in one file instead of every test.
+
+### How to Apply This in Real QA Work
+
+Selenium drives real browsers through WebDriver. It is powerful for cross-browser UI checks, but reliable tests require stable locators, explicit waits, and careful test design.
+
+#### Practical Workflow
+
+- Use stable selectors such as IDs or data-testid attributes instead of brittle CSS paths or absolute XPath.
+- Wait for meaningful conditions: element visible, enabled, text present, network result reflected in UI, or URL changed.
+- Keep test logic separate from page interaction code so UI changes are easier to maintain.
+- Limit Selenium to journeys where browser behavior truly matters; use API tests for backend-heavy validation.
+
+#### Common Mistakes to Avoid
+
+- Using fixed sleeps instead of condition-based waits.
+- Testing every validation rule through the browser when faster lower-level tests would work.
+- Letting one test depend on state created by a previous test.
+
+#### Practice Prompt
+
+Refactor one brittle locator into a stable test selector and explain why it is more reliable.`,
 };

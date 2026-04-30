@@ -52,5 +52,41 @@ In modern teams, QA is involved from day one:
 - **Development phase**: Write test cases, set up test environments
 - **Testing phase**: Execute and report
 - **Deployment**: Smoke test in production
-- **Maintenance**: Regression testing for every change`,
+- **Maintenance**: Regression testing for every change
+
+
+### Real-World Use Cases
+
+#### Case 1: QA in requirements
+
+For a password reset feature, QA asks what happens when the token expires, whether reset links can be reused, and how long the email should take to arrive before development starts.
+
+#### Case 2: QA in design
+
+For a file upload service, QA reviews limits, virus scanning, supported file types, storage failures, and retry behavior while the architecture is still flexible.
+
+#### Case 3: QA after release
+
+After deployment, QA runs production smoke checks and watches monitoring for login errors, payment failures, and unusual latency.
+
+### How to Apply This in Real QA Work
+
+The SDLC explains where work is discovered, designed, built, tested, released, and maintained. QA work is strongest when it follows the product from idea to production instead of appearing only at the end.
+
+#### Practical Workflow
+
+- During requirements, look for ambiguity, missing acceptance criteria, impossible states, and non-functional needs such as performance or accessibility.
+- During design, identify integrations, data flows, permissions, migrations, and rollback risks.
+- During development, prepare test data and test cases while developers build so testing can begin as soon as increments are available.
+- During release, run smoke checks, review known risks, and confirm monitoring exists for the areas most likely to fail.
+
+#### Common Mistakes to Avoid
+
+- Waiting until code freeze to ask requirement questions.
+- Assuming Agile means no planning or no documentation.
+- Testing only the UI when the risky behavior lives in APIs, queues, services, or databases.
+
+#### Practice Prompt
+
+Take one feature idea and list one QA activity for each phase: requirement, design, development, test, deployment, and maintenance.`,
 };

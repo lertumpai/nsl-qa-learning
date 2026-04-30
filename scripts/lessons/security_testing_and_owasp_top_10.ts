@@ -83,12 +83,22 @@ Default configs, open cloud storage, verbose error messages.
 
 ### Security Testing Tools
 
-| Tool | Purpose | Skill Level |
-|------|---------|-------------|
-| **OWASP ZAP** | Full web app scanner | Beginner-friendly |
-| **Burp Suite** | Intercept and modify requests | Intermediate |
-| **SQLMap** | Automated SQL injection detection | Intermediate |
-| **Nikto** | Web server scanner | Beginner |
+
+**Structured reference**
+
+- **OWASP ZAP**
+  - Purpose: Full web app scanner
+  - Skill Level: Beginner-friendly
+- **Burp Suite**
+  - Purpose: Intercept and modify requests
+  - Skill Level: Intermediate
+- **SQLMap**
+  - Purpose: Automated SQL injection detection
+  - Skill Level: Intermediate
+- **Nikto**
+  - Purpose: Web server scanner
+  - Skill Level: Beginner
+
 
 ### Security Test in Your API Test Suite
 
@@ -112,5 +122,41 @@ describe("Security: Authorization", () => {
   .expect(403);
   });
 });
-\`\`\``,
+\`\`\`
+
+
+### Real-World Use Cases
+
+#### Case 1: IDOR check
+
+Logged in as user 456, QA requests /users/123 and expects 403 or 404 instead of another user's private data.
+
+#### Case 2: Injection check
+
+QA submits SQL-like and script-like payloads into search, login, and comment fields and verifies safe validation or escaping.
+
+#### Case 3: Session security
+
+QA confirms logout invalidates the token and that expired reset links cannot be reused.
+
+### How to Apply This in Real QA Work
+
+Security testing asks how a system can be abused, not just whether it works for friendly users. QA can catch many security risks early by testing permissions, inputs, sessions, and configuration.
+
+#### Practical Workflow
+
+- Start with threat thinking: who can access this, what data is valuable, and what could an attacker manipulate?
+- Test broken access control, injection, authentication failures, sensitive data exposure, and unsafe configuration.
+- Use tools like scanners to support testing, but verify findings manually and understand impact.
+- Include negative authorization tests in API and UI automation for sensitive resources.
+
+#### Common Mistakes to Avoid
+
+- Assuming security is only the security team's responsibility.
+- Testing only login and ignoring object-level access, such as changing IDs in URLs or payloads.
+- Sharing sensitive data, tokens, or credentials in bug reports without masking.
+
+#### Practice Prompt
+
+For a profile endpoint, list three access-control tests that try to read or change another user's data.`,
 };

@@ -71,10 +71,59 @@ Regression is the #1 candidate for automation because:
 
 ### Summary Table
 
-| | Smoke | Sanity | Regression |
-|--|-------|--------|-----------|
-| **Trigger** | New build | Bug fix | Any code change |
-| **Scope** | Broad, shallow | Narrow, deep | Broad, deep |
-| **Goal** | Is app stable? | Is fix correct? | Nothing else broke? |
-| **Duration** | 15-30 min | 1-2 hours | Hours to days |`,
+
+**Structured reference**
+
+- **Trigger**
+  - Smoke: New build
+  - Sanity: Bug fix
+  - Regression: Any code change
+- **Scope**
+  - Smoke: Broad, shallow
+  - Sanity: Narrow, deep
+  - Regression: Broad, deep
+- **Goal**
+  - Smoke: Is app stable?
+  - Sanity: Is fix correct?
+  - Regression: Nothing else broke?
+- **Duration**
+  - Smoke: 15-30 min
+  - Sanity: 1-2 hours
+  - Regression: Hours to days
+
+
+### Real-World Use Cases
+
+#### Case 1: Smoke after deployment
+
+QA checks app loads, login works, dashboard opens, checkout starts, and health endpoints pass before deeper testing begins.
+
+#### Case 2: Sanity after a bug fix
+
+A coupon calculation bug is fixed. QA tests the exact coupon, nearby coupon types, and visible totals to confirm the fix makes sense.
+
+#### Case 3: Regression after refactor
+
+A shared form component changes. QA reruns login, signup, checkout address, profile edit, and admin forms.
+
+### How to Apply This in Real QA Work
+
+Smoke, sanity, and regression tests answer different release questions. Smoke asks whether the build is usable, sanity asks whether a specific change is reasonable, and regression asks whether existing behavior survived.
+
+#### Practical Workflow
+
+- Run smoke tests after deployment or new builds before investing in detailed testing.
+- Run sanity tests around a bug fix or small change to confirm the target area behaves correctly.
+- Run regression tests around features that could be affected by the change, including integrations and shared components.
+- Keep smoke suites small, stable, and fast so they provide quick release feedback.
+
+#### Common Mistakes to Avoid
+
+- Calling every test suite regression, which hides its purpose and expected duration.
+- Making smoke tests too large, slow, or fragile.
+- Skipping nearby regression checks after a fix because the original bug appears resolved.
+
+#### Practice Prompt
+
+For a login bug fix, define one smoke check, two sanity checks, and three regression checks.`,
 };

@@ -87,7 +87,7 @@ function maskUser(user: User): MaskedUser {
   email: \`masked-\${user.id}@test.example.com\`,
   phone: faker.phone.number(),
   ssn: "***-**-****",
-  creditCard: "****-****-****-" + user.creditCard.slice(-4),
+  creditCard: "**-**-****-" + user.creditCard.slice(-4),
   };
 }
 \`\`\`
@@ -108,17 +108,63 @@ const testUsers = {
 
 ### Environment-Based Data Strategy
 
-| Environment | Data Source | Strategy |
-|-------------|-------------|---------|
-| **Local dev** | Seeded from factory | Recreate on demand |
-| **CI/CD** | Seeded per test run | Fresh seed + teardown |
-| **Staging** | Anonymized prod copy | Refresh weekly |
-| **Production** | Real user data | Never touch |
+
+**Structured reference**
+
+- **Local dev**
+  - Data Source: Seeded from factory
+  - Strategy: Recreate on demand
+- **CI/CD**
+  - Data Source: Seeded per test run
+  - Strategy: Fresh seed + teardown
+- **Staging**
+  - Data Source: Anonymized prod copy
+  - Strategy: Refresh weekly
+- **Production**
+  - Data Source: Real user data
+  - Strategy: Never touch
+
 
 ### Data Isolation Techniques
 
 1. **Transaction rollback**: Wrap each test in a transaction, roll back after
 2. **Unique prefixes**: All test emails contain \`test-\` prefix — easy cleanup
 3. **Dedicated test schema**: Separate PostgreSQL schema for tests
-4. **Containerized DB**: Spin up a fresh Docker PostgreSQL per test run`,
+4. **Containerized DB**: Spin up a fresh Docker PostgreSQL per test run
+
+
+### Real-World Use Cases
+
+#### Case 1: Unique test users
+
+Every automated run creates users with unique email addresses to avoid collisions with previous runs or parallel jobs.
+
+#### Case 2: Masked production copy
+
+Staging uses production-like data with names, emails, phone numbers, and cards masked to protect privacy.
+
+#### Case 3: Data cleanup
+
+After an order API test, teardown removes test orders or marks them with a test_run_id for later cleanup.
+
+### How to Apply This in Real QA Work
+
+Test data management controls the data needed to run reliable tests. Good data strategy prevents flaky tests, privacy risks, and environment pollution.
+
+#### Practical Workflow
+
+- Choose whether data should be generated, seeded, copied, anonymized, or created through APIs.
+- Make test data isolated so parallel tests do not overwrite each other.
+- Clean up data or design tests with unique identifiers to avoid collisions.
+- Mask or synthesize sensitive production data before it enters non-production environments.
+
+#### Common Mistakes to Avoid
+
+- Depending on one shared account that many tests modify.
+- Using real personal data in lower environments.
+- Failing to reset state after tests, causing later tests to fail for the wrong reason.
+
+#### Practice Prompt
+
+Design test data for a checkout flow that needs a user, address, product, cart, coupon, and payment method.`,
 };

@@ -41,12 +41,22 @@ Modern systems are too complex to test everything in staging. Chaos engineering 
 
 ### Chaos Tools
 
-| Tool | Level | Description |
-|------|-------|-------------|
-| **Chaos Monkey** | Infrastructure | Randomly terminates EC2 instances |
-| **Gremlin** | Platform | Enterprise chaos platform |
-| **Chaos Mesh** | Kubernetes | K8s-native chaos framework |
-| **Toxiproxy** | Network | Simulate network failures locally |
+
+**Structured reference**
+
+- **Chaos Monkey**
+  - Level: Infrastructure
+  - Description: Randomly terminates EC2 instances
+- **Gremlin**
+  - Level: Platform
+  - Description: Enterprise chaos platform
+- **Chaos Mesh**
+  - Level: Kubernetes
+  - Description: K8s-native chaos framework
+- **Toxiproxy**
+  - Level: Network
+  - Description: Simulate network failures locally
+
 
 ### Toxiproxy Example (Local Testing)
 
@@ -113,5 +123,41 @@ QA engineers should understand and use:
 - **Traces**: Distributed traces showing request flow across services
 - **Alerts**: Know what triggers oncall pages
 
-**The 3 pillars of observability: Logs + Metrics + Traces**`,
+**The 3 pillars of observability: Logs + Metrics + Traces**
+
+
+### Real-World Use Cases
+
+#### Case 1: Dependency timeout experiment
+
+The team simulates a recommendation service timeout and expects the product page to load with fallback content instead of failing.
+
+#### Case 2: Synthetic checkout monitor
+
+A production monitor runs a safe test checkout every few minutes and alerts if the flow breaks.
+
+#### Case 3: Rollback rehearsal
+
+During a controlled release, the team practices rollback steps and verifies alerts, dashboards, and runbooks are useful.
+
+### How to Apply This in Real QA Work
+
+Chaos engineering validates resilience by introducing controlled failure. Production testing focuses on learning from real systems while protecting users with safeguards.
+
+#### Practical Workflow
+
+- Start with a hypothesis about expected system behavior during failure.
+- Run the smallest safe experiment in a controlled scope with monitoring, rollback, and stakeholder awareness.
+- Observe user impact, system recovery, alerts, dashboards, logs, and runbook effectiveness.
+- Turn experiment findings into reliability improvements, tests, alerts, or incident-response updates.
+
+#### Common Mistakes to Avoid
+
+- Breaking systems randomly without a hypothesis, scope, or abort condition.
+- Running experiments without monitoring and rollback readiness.
+- Treating production checks as a replacement for pre-release testing.
+
+#### Practice Prompt
+
+Write a safe chaos experiment for a non-critical service dependency timing out for five minutes.`,
 };

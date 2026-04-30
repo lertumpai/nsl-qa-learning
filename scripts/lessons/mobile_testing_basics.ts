@@ -12,14 +12,28 @@ Mobile testing has unique challenges compared to web testing: device fragmentati
 
 ### Mobile Testing Challenges
 
-| Challenge | Description | Mitigation |
-|-----------|-------------|-----------|
-| **Device Fragmentation** | Thousands of device/OS combinations | Prioritize device matrix |
-| **Network Conditions** | 3G/4G/5G/WiFi/Offline | Test on different network speeds |
-| **Screen Sizes** | Multiple resolutions and densities | Test key breakpoints |
-| **OS Versions** | iOS 16/17, Android 12/13/14 | Cover latest 2-3 versions |
-| **Battery/Resource** | Background processes affect performance | Test with low battery |
-| **Permissions** | Camera, location, notifications | Test grant and deny flows |
+
+**Structured reference**
+
+- **Device Fragmentation**
+  - Description: Thousands of device/OS combinations
+  - Mitigation: Prioritize device matrix
+- **Network Conditions**
+  - Description: 3G/4G/5G/WiFi/Offline
+  - Mitigation: Test on different network speeds
+- **Screen Sizes**
+  - Description: Multiple resolutions and densities
+  - Mitigation: Test key breakpoints
+- **OS Versions**
+  - Description: iOS 16/17, Android 12/13/14
+  - Mitigation: Cover latest 2-3 versions
+- **Battery/Resource**
+  - Description: Background processes affect performance
+  - Mitigation: Test with low battery
+- **Permissions**
+  - Description: Camera, location, notifications
+  - Mitigation: Test grant and deny flows
+
 
 ### Device Matrix Strategy
 
@@ -38,13 +52,25 @@ Android: Samsung Galaxy S24 (Android 14), Pixel 7 (Android 13), Xiaomi 11 (Andro
 
 ### Real Device vs Emulator/Simulator
 
-| | Real Device | Emulator/Simulator |
-|--|-------------|-------------------|
-| Accuracy | Exact behavior | Near-accurate |
-| Camera/GPS | Real sensors | Simulated |
-| Battery/Temp | Real conditions | Not available |
-| Speed | Slower to set up | Fast |
-| Cost | High | Free |
+
+**Structured reference**
+
+- **Accuracy**
+  - Real Device: Exact behavior
+  - Emulator/Simulator: Near-accurate
+- **Camera/GPS**
+  - Real Device: Real sensors
+  - Emulator/Simulator: Simulated
+- **Battery/Temp**
+  - Real Device: Real conditions
+  - Emulator/Simulator: Not available
+- **Speed**
+  - Real Device: Slower to set up
+  - Emulator/Simulator: Fast
+- **Cost**
+  - Real Device: High
+  - Emulator/Simulator: Free
+
 
 **Recommendation**: Use emulators for development and early testing; real devices for final validation.
 
@@ -74,11 +100,58 @@ Android: Samsung Galaxy S24 (Android 14), Pixel 7 (Android 13), Xiaomi 11 (Andro
 
 ### Mobile Testing Tools
 
-| Tool | Platform | Use Case |
-|------|----------|---------|
-| **Appium** | iOS + Android | Cross-platform automation |
-| **XCTest** | iOS only | Native iOS automation |
-| **Espresso** | Android only | Native Android automation |
-| **BrowserStack** | Both | Real device cloud |
-| **Firebase Test Lab** | Both | Google's device cloud |`,
+
+**Structured reference**
+
+- **Appium**
+  - Platform: iOS + Android
+  - Use Case: Cross-platform automation
+- **XCTest**
+  - Platform: iOS only
+  - Use Case: Native iOS automation
+- **Espresso**
+  - Platform: Android only
+  - Use Case: Native Android automation
+- **BrowserStack**
+  - Platform: Both
+  - Use Case: Real device cloud
+- **Firebase Test Lab**
+  - Platform: Both
+  - Use Case: Google's device cloud
+
+
+### Real-World Use Cases
+
+#### Case 1: Permission denied flow
+
+QA denies camera permission during profile photo upload and verifies the app explains how to continue or enable permission later.
+
+#### Case 2: Network interruption
+
+During checkout, QA switches from WiFi to cellular and then offline to verify retry, save state, and user messaging.
+
+#### Case 3: Upgrade testing
+
+QA installs the old app version, creates data, upgrades to the new version, and verifies that settings and sessions are preserved.
+
+### How to Apply This in Real QA Work
+
+Mobile testing adds device, operating system, network, battery, permission, interruption, and app lifecycle risks. The same feature can behave differently across devices and contexts.
+
+#### Practical Workflow
+
+- Build a device matrix from analytics, customer base, supported OS versions, and high-risk devices.
+- Test core journeys across install, upgrade, permissions, backgrounding, rotation, connectivity changes, and push notifications.
+- Use emulators for early breadth and real devices for final confidence in hardware-specific behavior.
+- Pay attention to offline handling, slow networks, battery saver mode, and app resume behavior.
+
+#### Common Mistakes to Avoid
+
+- Testing only on the newest high-end phone.
+- Ignoring permission-denied flows for camera, location, contacts, and notifications.
+- Forgetting upgrade testing, where existing user data can break after a new release.
+
+#### Practice Prompt
+
+Create a small device matrix for a banking app with at least four devices and two network conditions.`,
 };

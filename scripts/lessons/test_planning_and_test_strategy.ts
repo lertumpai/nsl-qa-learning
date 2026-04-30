@@ -44,11 +44,22 @@ Not everything can be tested. Prioritize based on risk:
 
 **Risk = Likelihood × Impact**
 
-| Feature | Likelihood of Defect | Business Impact | Risk Level |
-|---------|---------------------|-----------------|-----------|
-| Checkout | Medium | Very High | HIGH |
-| Help page | Low | Low | LOW |
-| Admin reports | Low | High | MEDIUM |
+
+**Structured reference**
+
+- **Checkout**
+  - Likelihood of Defect: Medium
+  - Business Impact: Very High
+  - Risk Level: HIGH
+- **Help page**
+  - Likelihood of Defect: Low
+  - Business Impact: Low
+  - Risk Level: LOW
+- **Admin reports**
+  - Likelihood of Defect: Low
+  - Business Impact: High
+  - Risk Level: MEDIUM
+
 
 Test high-risk areas first and most thoroughly.
 
@@ -63,5 +74,41 @@ Test high-risk areas first and most thoroughly.
 - 100% test cases executed
 - No open Critical/High severity bugs
 - Test coverage > 80%
-- Test summary report approved`,
+- Test summary report approved
+
+
+### Real-World Use Cases
+
+#### Case 1: Release test plan
+
+For a checkout redesign, QA defines scope, environments, payment methods, browser matrix, risks, entry criteria, exit criteria, and regression areas.
+
+#### Case 2: Risk-based priority
+
+If time is short, QA tests checkout, login, and order history before low-risk content pages because those areas have higher business impact.
+
+#### Case 3: Out-of-scope agreement
+
+The team agrees that admin reporting is not part of the release test scope and documents the reason to prevent false assumptions.
+
+### How to Apply This in Real QA Work
+
+A test plan explains how a specific release will be tested. A test strategy explains the larger testing approach the team follows across releases and products.
+
+#### Practical Workflow
+
+- Define scope by feature, platform, integration, user role, and risk level.
+- Prioritize testing based on likelihood of failure and business impact, not just number of screens.
+- Write entry, suspension, resumption, and exit criteria so stakeholders know when testing can start, pause, continue, or finish.
+- Make assumptions and out-of-scope areas explicit so nobody mistakes untested areas for approved areas.
+
+#### Common Mistakes to Avoid
+
+- Creating a plan that lists activities but does not identify risks.
+- Promising full testing when time, data, or environment constraints make that impossible.
+- Ignoring dependencies such as test accounts, payment sandbox access, or third-party services.
+
+#### Practice Prompt
+
+For a payment feature, create a short risk-based scope with three high-risk and three low-risk areas.`,
 };

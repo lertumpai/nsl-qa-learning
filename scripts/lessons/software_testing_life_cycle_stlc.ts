@@ -68,5 +68,41 @@ Wrap up the testing effort and document lessons learned.
 - Create test summary report
 - Archive test artifacts
 
-**Deliverable:** Test Closure Report`,
+**Deliverable:** Test Closure Report
+
+
+### Real-World Use Cases
+
+#### Case 1: Requirement analysis for signup
+
+QA reviews signup requirements and finds missing rules for duplicate emails, minimum password length, email verification, and unsupported countries.
+
+#### Case 2: Test execution for a sprint
+
+During execution, QA marks tests as pass, fail, blocked, or not run, then reports defects with evidence and updates the team on release risk.
+
+#### Case 3: Test closure after release
+
+At closure, QA summarizes pass rate, high-risk areas, escaped defects, blocked tests, and lessons learned for the next release cycle.
+
+### How to Apply This in Real QA Work
+
+The STLC gives testing its own discipline. It turns vague checking into a repeatable process with analysis, planning, design, execution, reporting, and closure.
+
+#### Practical Workflow
+
+- Analyze requirements and mark what is testable, unclear, missing, or out of scope.
+- Plan the test approach, including scope, environments, data, tools, risks, entry criteria, and exit criteria.
+- Design test cases that cover positive paths, negative paths, boundaries, integrations, permissions, and regression areas.
+- Execute tests, log defects, retest fixes, update progress, and close with metrics and lessons learned.
+
+#### Common Mistakes to Avoid
+
+- Writing test cases before understanding the requirement and user goal.
+- Skipping test closure. Without closure, teams repeat the same risks and process gaps next release.
+- Treating blocked tests as harmless. Blocked tests hide unknown risk.
+
+#### Practice Prompt
+
+For a checkout feature, define entry criteria and exit criteria for test execution.`,
 };

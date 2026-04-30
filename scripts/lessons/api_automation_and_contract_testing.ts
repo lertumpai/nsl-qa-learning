@@ -131,5 +131,41 @@ For every endpoint:
 - [ ] Not found (404)
 - [ ] Conflict (409) — duplicate data
 - [ ] Response schema matches contract
-- [ ] Response time < SLA threshold`,
+- [ ] Response time < SLA threshold
+
+
+### Real-World Use Cases
+
+#### Case 1: Consumer contract
+
+A mobile app expects order.total to be a number and status to be pending, paid, or cancelled. Contract tests protect that agreement.
+
+#### Case 2: Schema validation
+
+API automation validates that every product response contains id, name, price, currency, and availability in the expected types.
+
+#### Case 3: Backward compatibility
+
+When the provider adds new fields, contract tests verify existing consumers still receive the fields they depend on.
+
+### How to Apply This in Real QA Work
+
+API automation verifies service behavior repeatedly. Contract testing adds a safety net between consumers and providers so teams can change services without silently breaking clients.
+
+#### Practical Workflow
+
+- Automate success, validation, authentication, authorization, idempotency, and error cases.
+- Validate response schemas and important business rules, not just status codes.
+- Use contract tests when consumers depend on provider fields, types, status codes, and error shapes.
+- Make setup and cleanup explicit so API tests can run safely in CI.
+
+#### Common Mistakes to Avoid
+
+- Testing APIs with shared mutable data that causes flaky failures.
+- Letting contracts become outdated because no team owns them.
+- Ignoring backward compatibility when changing response fields.
+
+#### Practice Prompt
+
+For an order API, list three provider contract expectations a mobile app consumer would rely on.`,
 };

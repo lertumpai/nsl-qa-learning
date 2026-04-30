@@ -57,12 +57,14 @@ If you'll run the test more than 22 times, automate it.
 
 ### Framework Selection Criteria
 
-| Criterion | Questions to Ask |
-|-----------|-----------------|
-| **Tech stack fit** | Does it integrate with our CI/CD and reporting tools? |
-| **Team skill** | Can the team learn and maintain it? |
-| **Community** | Is it actively maintained? Stack Overflow answers? |
-| **Coverage** | Does it cover our test types (UI, API, mobile)? |
+
+**Structured reference**
+
+- **Tech stack fit**: Does it integrate with our CI/CD and reporting tools?
+- **Team skill**: Can the team learn and maintain it?
+- **Community**: Is it actively maintained? Stack Overflow answers?
+- **Coverage**: Does it cover our test types (UI, API, mobile)?
+
 
 ### Page Object Model (POM)
 
@@ -91,5 +93,41 @@ expect(await loginPage.getErrorMessage()).toBe("Invalid credentials");
 2. **Single Responsibility**: One test case = one scenario
 3. **Independent**: Tests should not depend on each other
 4. **Fast**: Failing tests should fail fast
-5. **Readable**: Test names and steps should be self-documenting`,
+5. **Readable**: Test names and steps should be self-documenting
+
+
+### Real-World Use Cases
+
+#### Case 1: Automating regression first
+
+The team automates login, checkout, search, and order history because they are stable, repeated every release, and business-critical.
+
+#### Case 2: Choosing the right layer
+
+A tax calculation rule is automated at API or unit level instead of UI level because it is faster, more stable, and easier to diagnose.
+
+#### Case 3: Avoiding poor automation ROI
+
+A one-time experimental screen remains manual because automating it would cost more than the value of repeated execution.
+
+### How to Apply This in Real QA Work
+
+Automation strategy decides where automation creates value and where it creates maintenance cost. The goal is fast, trustworthy feedback, not the highest number of automated tests.
+
+#### Practical Workflow
+
+- Automate stable, repeatable, high-value checks first, especially regression paths and API/business rules.
+- Place tests at the cheapest reliable layer: unit, component, API, integration, or UI.
+- Design maintainable test architecture with clear data setup, selectors, page objects or screen objects, and reporting.
+- Review flaky tests quickly because unreliable automation destroys trust.
+
+#### Common Mistakes to Avoid
+
+- Automating unstable features before the behavior is agreed.
+- Pushing too much coverage into slow UI tests.
+- Ignoring ownership, naming, data cleanup, and failure diagnostics.
+
+#### Practice Prompt
+
+Choose ten manual regression tests and classify which should become unit, API, UI, or remain manual exploratory tests.`,
 };

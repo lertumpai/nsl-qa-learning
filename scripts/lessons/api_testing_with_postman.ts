@@ -108,5 +108,41 @@ For every endpoint, test:
 4. No auth token → 401
 5. Wrong role → 403
 6. Non-existent resource → 404
-7. Duplicate creation → 409`,
+7. Duplicate creation → 409
+
+
+### Real-World Use Cases
+
+#### Case 1: Collection for user management
+
+QA builds a collection that creates a user, logs in, reads the profile, updates the profile, and deletes the test user.
+
+#### Case 2: Environment variables
+
+The same request collection runs against dev and staging by switching baseUrl, token, and testUserId variables.
+
+#### Case 3: Newman in CI
+
+The team runs critical Postman collections with Newman after deployment and fails the pipeline if auth or checkout APIs break.
+
+### How to Apply This in Real QA Work
+
+Postman is useful for learning an API, documenting requests, building repeatable checks, and sharing test collections with a team.
+
+#### Practical Workflow
+
+- Create collections around business workflows, not just individual endpoints.
+- Use environments for base URLs, tokens, user IDs, and shared test data.
+- Write assertions for status code, schema, important fields, response time, and error messages.
+- Chain requests carefully by saving generated IDs and cleaning up test data when possible.
+
+#### Common Mistakes to Avoid
+
+- Hardcoding tokens or environment-specific URLs inside requests.
+- Relying on manual Send clicks instead of collection runner or CI execution for repeatability.
+- Testing only successful requests and skipping auth, validation, and permission failures.
+
+#### Practice Prompt
+
+Create a Postman collection flow for create user, get user, update user, and delete user.`,
 };

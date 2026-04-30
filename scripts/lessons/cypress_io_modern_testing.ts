@@ -122,5 +122,41 @@ cy.fixture("users").then((users) => {
 2. Don't test third-party services — stub them with \`cy.intercept\`
 3. Avoid \`cy.wait(ms)\` — use \`cy.wait("@alias")\` instead
 4. Each test should be independent — use \`beforeEach\` to set state
-5. Use custom commands for repeated login/setup patterns`,
+5. Use custom commands for repeated login/setup patterns
+
+
+### Real-World Use Cases
+
+#### Case 1: Frontend form validation
+
+Cypress checks that invalid email input shows a validation message and that the submit button stays disabled.
+
+#### Case 2: Network interception
+
+QA stubs a failed API response to verify the UI shows a friendly error message without needing the backend to fail.
+
+#### Case 3: Fixture-driven test
+
+A product list test loads fixture data so the UI state is predictable and fast during local development.
+
+### How to Apply This in Real QA Work
+
+Cypress runs tests inside the browser and gives strong debugging tools for modern web apps. It shines for developer-friendly UI and component-level feedback.
+
+#### Practical Workflow
+
+- Use data-testid selectors and avoid selectors tied to styling or layout.
+- Control network dependencies with intercepts when the UI behavior, not backend availability, is the focus.
+- Use fixtures and factories to make tests deterministic.
+- Keep assertions user-visible when possible: text, state, URL, enabled buttons, and rendered errors.
+
+#### Common Mistakes to Avoid
+
+- Waiting manually for arbitrary time instead of relying on Cypress retry behavior.
+- Over-mocking so much that the test no longer reflects real integration risk.
+- Writing long end-to-end chains that are hard to debug when they fail.
+
+#### Practice Prompt
+
+Write a Cypress test idea for login that verifies both UI feedback and the outgoing API request.`,
 };

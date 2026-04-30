@@ -137,5 +137,41 @@ export default defineConfig({
 });
 \`\`\`
 
-Open trace: \`npx playwright show-trace trace.zip\``,
+Open trace: \`npx playwright show-trace trace.zip\`
+
+
+### Real-World Use Cases
+
+#### Case 1: Multi-browser critical path
+
+QA runs signup and checkout in Chromium, Firefox, and WebKit to catch issues that only appear in Safari-like browsers.
+
+#### Case 2: Trace debugging
+
+A CI failure is investigated through Playwright Trace Viewer, showing screenshots, console logs, network calls, and the exact failed action.
+
+#### Case 3: API setup with UI verification
+
+The test creates an order through an API helper, then opens the UI to verify the order appears correctly for the user.
+
+### How to Apply This in Real QA Work
+
+Playwright is built for reliable cross-browser end-to-end testing. Its auto-waiting, tracing, browser contexts, and locator model make it strong for modern web applications.
+
+#### Practical Workflow
+
+- Prefer role, label, text, and test-id locators that reflect how users and accessibility tools find elements.
+- Use browser contexts for isolated sessions and parallel-safe tests.
+- Capture traces, screenshots, and videos for failure diagnosis in CI.
+- Combine UI and API helpers to set up data quickly while still validating the user journey through the browser.
+
+#### Common Mistakes to Avoid
+
+- Using brittle CSS selectors when role-based locators are available.
+- Sharing authentication or data state across parallel tests.
+- Ignoring trace viewer artifacts and guessing why CI failed.
+
+#### Practice Prompt
+
+Design one Playwright test that creates data through an API helper and verifies it through the UI.`,
 };

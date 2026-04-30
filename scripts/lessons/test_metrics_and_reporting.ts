@@ -14,20 +14,38 @@ Metrics help you measure the effectiveness of testing, communicate status to sta
 
 #### Test Execution Metrics
 
-| Metric | Formula | Good Indicator |
-|--------|---------|----------------|
-| **Test Pass Rate** | (Passed / Total Executed) × 100 | > 90% |
-| **Test Execution Rate** | (Executed / Total Planned) × 100 | 100% |
-| **Automation Coverage** | (Automated / Total Test Cases) × 100 | > 60% for regression |
+
+**Structured reference**
+
+- **Test Pass Rate**
+  - Formula: (Passed / Total Executed) × 100
+  - Good Indicator: > 90%
+- **Test Execution Rate**
+  - Formula: (Executed / Total Planned) × 100
+  - Good Indicator: 100%
+- **Automation Coverage**
+  - Formula: (Automated / Total Test Cases) × 100
+  - Good Indicator: > 60% for regression
+
 
 #### Defect Metrics
 
-| Metric | Formula | Purpose |
-|--------|---------|---------|
-| **Defect Density** | Defects / Feature Point or KLOC | Code quality indicator |
-| **Defect Detection Rate** | Bugs found by QA / Total bugs | Testing effectiveness |
-| **Defect Leakage** | Prod bugs / (QA bugs + Prod bugs) × 100 | How many bugs escaped |
-| **Defect Removal Efficiency** | Bugs found before release / Total bugs × 100 | Overall quality |
+
+**Structured reference**
+
+- **Defect Density**
+  - Formula: Defects / Feature Point or KLOC
+  - Purpose: Code quality indicator
+- **Defect Detection Rate**
+  - Formula: Bugs found by QA / Total bugs
+  - Purpose: Testing effectiveness
+- **Defect Leakage**
+  - Formula: Prod bugs / (QA bugs + Prod bugs) × 100
+  - Purpose: How many bugs escaped
+- **Defect Removal Efficiency**
+  - Formula: Bugs found before release / Total bugs × 100
+  - Purpose: Overall quality
+
 
 #### Defect Age / Resolution Time
 
@@ -74,5 +92,41 @@ When a bug escapes to production, perform a root cause analysis:
 ❌ **Vanity**: "We ran 500 tests!"
 ✅ **Meaningful**: "Pass rate is 95%, defect leakage this sprint is 2%"
 
-Metrics should drive decisions, not just fill dashboards.`,
+Metrics should drive decisions, not just fill dashboards.
+
+
+### Real-World Use Cases
+
+#### Case 1: Release readiness report
+
+QA reports 92% pass rate, two blocked payment tests, zero critical bugs, and one known browser risk so stakeholders can decide whether to release.
+
+#### Case 2: Defect leakage analysis
+
+Three production bugs escaped in search. QA traces whether requirements, test data, automation, or environment gaps allowed them through.
+
+#### Case 3: Automation health metric
+
+A suite has high coverage but many flaky tests. QA reports flake rate and mean time to repair instead of only automation count.
+
+### How to Apply This in Real QA Work
+
+Metrics should help teams make decisions. Good QA reporting explains release risk, trend direction, quality bottlenecks, and what action is needed next.
+
+#### Practical Workflow
+
+- Choose metrics tied to decisions: release readiness, defect leakage, cycle time, pass rate, blocked tests, and automation health.
+- Separate leading indicators, such as blocked tests, from lagging indicators, such as production defects.
+- Tell the story behind the number: what changed, why it matters, and what the team should do.
+- Report uncertainty honestly when coverage, environments, or data are incomplete.
+
+#### Common Mistakes to Avoid
+
+- Using test case count as a quality measure.
+- Hiding blocked or skipped tests inside pass-rate summaries.
+- Reporting raw numbers without impact, trend, or recommended action.
+
+#### Practice Prompt
+
+Create a five-line release health summary using pass rate, open critical bugs, blocked tests, and known risks.`,
 };

@@ -143,5 +143,41 @@ vus...........................: 100    min=100 max=100
   with:
   name: k6-results
   path: results.json
-\`\`\``,
+\`\`\`
+
+
+### Real-World Use Cases
+
+#### Case 1: API baseline test
+
+QA runs a small k6 test daily to track normal p95 latency for login and search endpoints.
+
+#### Case 2: Stress scenario
+
+QA gradually increases virtual users until checkout latency exceeds the threshold or error rate climbs, identifying the breaking point.
+
+#### Case 3: CI performance threshold
+
+A pipeline fails if p95 API latency exceeds 500 ms or request failure rate exceeds 1%.
+
+### How to Apply This in Real QA Work
+
+k6 lets QA and developers write performance tests as code. It is useful for repeatable load scenarios, thresholds, and CI-friendly performance checks.
+
+#### Practical Workflow
+
+- Model realistic user journeys with setup data, authentication, pacing, and a mix of endpoints.
+- Use thresholds for p95 latency, error rate, request failure rate, and custom business checks.
+- Start with baseline tests, then add load, stress, spike, and soak scenarios as risk increases.
+- Correlate k6 output with server metrics such as CPU, memory, database load, queue depth, and logs.
+
+#### Common Mistakes to Avoid
+
+- Measuring only client-side k6 numbers without checking backend bottlenecks.
+- Using unrealistic zero-think-time scripts and mistaking them for user load.
+- Running destructive load tests against shared or production environments without approval.
+
+#### Practice Prompt
+
+Write success thresholds for a k6 test of a login API under 100 virtual users.`,
 };
