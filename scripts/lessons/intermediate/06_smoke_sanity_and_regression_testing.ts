@@ -6,6 +6,7 @@ export const smokeSanityAndRegressionTestingLesson: LessonRow = {
   description: "Know when and how to run each type of health-check test",
   step_order: 6,
   duration_min: 12,
+  image: "https://images.unsplash.com/photo-1516534775068-bb6a7b6d4187?w=800&h=600",
   content: `## Smoke, Sanity & Regression Testing
 
 These three test types are often confused. Each serves a different purpose and is run at different times. Understanding when to use each one is a key professional QA skill.

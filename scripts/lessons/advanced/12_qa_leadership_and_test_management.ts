@@ -6,6 +6,7 @@ export const qaLeadershipAndTestManagementLesson: LessonRow = {
   description: "Lead QA teams, define quality processes, and communicate quality to stakeholders",
   step_order: 12,
   duration_min: 18,
+  image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=600",
   content: `## QA Leadership & Test Management
 
 Senior QA engineers eventually take on leadership responsibilities — building teams, defining quality standards, influencing engineering practices, and communicating quality strategy to the business. This lesson covers the skills needed to lead quality at an organizational level.

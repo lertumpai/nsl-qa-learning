@@ -6,6 +6,7 @@ export const typesOfTestingLesson: LessonRow = {
   description: "Explore all major testing types and when to use each one",
   step_order: 4,
   duration_min: 18,
+  image: "https://images.unsplash.com/photo-1516534775068-bb6a7b6d4187?w=800&h=600",
   content: `## Types of Testing
 
 Understanding the landscape of testing types helps you choose the right approach for every situation. Each type answers a different question about the software.

@@ -15,9 +15,10 @@ interface LessonWithProgress extends Lesson {
 interface Props {
   lessons: LessonWithProgress[];
   levelColor: string;
+  levelSlug?: string;
 }
 
-export default function LessonStepper({ lessons, levelColor }: Props) {
+export default function LessonStepper({ lessons, levelColor, levelSlug }: Props) {
   const firstIncompleteIndex = lessons.findIndex((l) => !l.completed);
 
   return (
@@ -26,7 +27,8 @@ export default function LessonStepper({ lessons, levelColor }: Props) {
         const isCompleted = lesson.completed;
         const isCurrent =
           index === firstIncompleteIndex || (firstIncompleteIndex === -1 && index === lessons.length - 1);
-        const isAccessible = index <= (firstIncompleteIndex === -1 ? lessons.length - 1 : firstIncompleteIndex);
+        // For advanced level, all lessons are accessible. For other levels, only up to current
+        const isAccessible = levelSlug === "advanced" || index <= (firstIncompleteIndex === -1 ? lessons.length - 1 : firstIncompleteIndex);
 
         return (
           <Box

@@ -6,6 +6,7 @@ export const equivalencePartitioningLesson: LessonRow = {
   description: "Reduce test cases while maintaining full coverage with EP technique",
   step_order: 3,
   duration_min: 15,
+  image: "https://images.unsplash.com/photo-1551431009-381d36ac3a14?w=800&h=600",
   content: `## Equivalence Partitioning
 
 Equivalence Partitioning (EP) is a black-box test design technique that divides input data into **partitions** — groups where all values are expected to produce the same result. You test one value per partition, reducing test cases while maintaining coverage.

@@ -6,6 +6,7 @@ export const defectLifeCycleLesson: LessonRow = {
   description: "Track a bug from discovery to closure and manage triage effectively",
   step_order: 7,
   duration_min: 12,
+  image: "https://images.unsplash.com/photo-1516541497487-3917ca9e6602?w=800&h=600",
   content: `## Defect Life Cycle
 
 The defect life cycle (also called the bug life cycle) describes all the states a defect goes through from discovery to closure. It creates shared ownership and makes every handoff visible.

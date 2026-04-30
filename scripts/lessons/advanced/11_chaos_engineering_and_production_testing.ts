@@ -6,6 +6,7 @@ export const chaosEngineeringAndProductionTestingLesson: LessonRow = {
   description: "Test system resilience with controlled fault injection and synthetic monitoring",
   step_order: 11,
   duration_min: 18,
+  image: "https://images.unsplash.com/photo-1550355291-bbee04a92027?w=800&h=600",
   content: `## Chaos Engineering & Production Testing
 
 Modern distributed systems are too complex to test everything in staging. Chaos engineering intentionally introduces failures in a controlled way to discover weaknesses before they surprise you in production. Production testing uses lightweight, safe checks to continuously verify that real users are getting the expected experience.

@@ -6,6 +6,7 @@ export const securityTestingAndOwaspTop10Lesson: LessonRow = {
   description: "Find vulnerabilities using the OWASP Top 10 as your testing guide",
   step_order: 8,
   duration_min: 22,
+  image: "https://images.unsplash.com/photo-1516941472616-1ace32debf5b?w=800&h=600",
   content: `## Security Testing & OWASP Top 10
 
 The OWASP Top 10 is the industry standard reference for web application security risks. QA engineers do not need to be security experts, but they should understand these vulnerabilities well enough to test for the most common and impactful ones in their applications.

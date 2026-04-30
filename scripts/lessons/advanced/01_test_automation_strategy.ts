@@ -6,6 +6,7 @@ export const testAutomationStrategyLesson: LessonRow = {
   description: "Build a sound automation strategy using the test pyramid and ROI thinking",
   step_order: 1,
   duration_min: 18,
+  image: "https://images.unsplash.com/photo-1633356122544-f134324ef6db?w=800&h=600",
   content: `## Test Automation Strategy
 
 Test automation without a strategy leads to brittle, expensive, and unmaintainable test suites that slow teams down instead of speeding them up. This lesson covers how to build automation that actually delivers value — fast feedback, trustworthy results, and maintainable code.

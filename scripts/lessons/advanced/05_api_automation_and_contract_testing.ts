@@ -6,6 +6,7 @@ export const apiAutomationAndContractTestingLesson: LessonRow = {
   description: "Automate API tests and prevent integration breakage with contract testing",
   step_order: 5,
   duration_min: 18,
+  image: "https://images.unsplash.com/photo-1633356122544-f134324ef6db?w=800&h=600",
   content: `## API Automation & Contract Testing
 
 API automation is the most cost-effective layer of test automation — faster than UI tests, more reliable, and directly verifying the business logic your users depend on. Contract testing adds an additional safety net that prevents services from silently breaking each other when they evolve independently.

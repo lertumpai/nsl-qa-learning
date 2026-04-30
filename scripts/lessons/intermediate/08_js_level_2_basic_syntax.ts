@@ -6,6 +6,7 @@ export const jsLevel2BasicSyntaxLesson: LessonRow = {
   description: "Master arrays, objects, functions, loops, and modules — the core tools of any QA automation script",
   step_order: 8,
   duration_min: 28,
+  image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800&h=600",
   content: `## Level 2 - Basic Syntax and Practical Patterns
 
 Now that you understand variables and data types from Level 1, this level teaches you how to organize and work with collections of data. In real QA automation, you rarely deal with just one value — you work with lists of test cases, groups of user data, and reusable functions that run hundreds of times.

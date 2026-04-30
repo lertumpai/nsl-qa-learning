@@ -18,6 +18,7 @@ export interface Lesson {
   content: string;
   step_order: number;
   duration_min: number;
+  image: string;
 }
 
 export interface Quiz {

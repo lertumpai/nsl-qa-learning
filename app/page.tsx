@@ -93,7 +93,7 @@ export default async function HomePage() {
             {[
               { value: levels.length.toString(), label: "Levels" },
               { value: lessonCount.toString(), label: "Lessons" },
-              { value: quizzes.length.toString(), label: "Quiz Questions" },
+              { value: (quizzes.length).toString(), label: "Quiz Questions" },
             ].map((stat) => (
               <Box key={stat.label} sx={{ textAlign: "center" }}>
                 <Typography

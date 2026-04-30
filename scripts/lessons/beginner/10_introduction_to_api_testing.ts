@@ -6,6 +6,7 @@ export const introductionToApiTestingLesson: LessonRow = {
   description: "Understand APIs, HTTP, REST, and how to test them effectively",
   step_order: 10,
   duration_min: 18,
+  image: "https://images.unsplash.com/photo-1633356122544-f134324ef6db?w=800&h=600",
   content: `## Introduction to API Testing
 
 APIs (Application Programming Interfaces) are the backbone of modern software. API testing verifies that these interfaces work correctly, reliably, and securely — often before any UI exists. It gives faster, more stable feedback than UI testing.

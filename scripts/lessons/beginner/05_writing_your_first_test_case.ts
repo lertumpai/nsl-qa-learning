@@ -6,6 +6,7 @@ export const writingYourFirstTestCaseLesson: LessonRow = {
   description: "Learn to write clear, complete, and effective test cases",
   step_order: 5,
   duration_min: 15,
+  image: "https://images.unsplash.com/photo-1516534775068-bb6a7b6d4187?w=800&h=600",
   content: `## Writing Your First Test Case
 
 A test case is a documented set of steps to verify that a specific feature works correctly. Well-written test cases are the foundation of effective testing.

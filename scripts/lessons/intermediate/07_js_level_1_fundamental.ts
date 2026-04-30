@@ -6,6 +6,7 @@ export const jsLevel1FundamentalLesson: LessonRow = {
   description: "Build strong JavaScript foundations for QA automation from absolute zero",
   step_order: 7,
   duration_min: 25,
+  image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800&h=600",
   content: `## JavaScript for QA — Level 1: Fundamentals
 
 JavaScript is one of the most important languages for QA automation because nearly every modern testing tool is built with it. Playwright, Cypress, k6, Postman scripts, and most CI pipelines use JavaScript or TypeScript. You do not need to become a full application developer — but you do need to read and write it confidently to build reliable automated tests.

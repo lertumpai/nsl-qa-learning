@@ -129,7 +129,7 @@ export default async function LevelPage({ params }: PageProps) {
         >
           Lessons
         </Typography>
-        <LessonStepper lessons={level.lessons} levelColor={level.color} />
+        <LessonStepper lessons={level.lessons} levelColor={level.color} levelSlug={levelSlug} />
       </Container>
     </Box>
   );

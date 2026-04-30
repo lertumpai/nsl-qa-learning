@@ -6,6 +6,7 @@ export const performanceTestingConceptsLesson: LessonRow = {
   description: "Understand load, stress, soak, and spike testing with real metrics",
   step_order: 14,
   duration_min: 15,
+  image: "https://images.unsplash.com/photo-1550355291-bbee04a92027?w=800&h=600",
   content: `## Performance Testing Concepts
 
 Performance testing ensures your application meets speed and stability requirements under various load conditions. A feature can be functionally correct but still fail in production because it is too slow, crashes under load, or degrades over time.

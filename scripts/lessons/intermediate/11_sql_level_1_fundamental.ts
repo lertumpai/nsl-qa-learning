@@ -6,6 +6,7 @@ export const sqlLevel1FundamentalLesson: LessonRow = {
 	description: "Understand databases, tables, data types, and constraints from zero — the foundation every QA engineer needs",
 	step_order: 11,
 	duration_min: 28,
+  image: "https://images.unsplash.com/photo-1551431009-381d36ac3a14?w=800&h=600",
 	content: `## SQL Level 1 - Fundamental
 
 SQL (Structured Query Language) is the language used to communicate with databases. If you have never touched SQL before, this level will explain databases from the very beginning — what they are, why they exist, and how QA engineers use them to find real bugs that are invisible in the UI.

@@ -5,4 +5,5 @@ export type LessonRow = {
   content: string;
   step_order: number;
   duration_min: number;
+  image: string;
 };

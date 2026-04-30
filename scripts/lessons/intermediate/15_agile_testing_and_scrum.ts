@@ -6,6 +6,7 @@ export const agileTestingAndScrumLesson: LessonRow = {
   description: "Test effectively in Agile sprints with Scrum ceremonies",
   step_order: 15,
   duration_min: 15,
+  image: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&h=600",
   content: `## Agile Testing & Scrum
 
 In Agile teams, testing is not a separate phase that happens after development — it is woven throughout every sprint. QA engineers are full members of the development team, involved from the first day of every story to the last day of every release.

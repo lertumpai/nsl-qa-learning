@@ -6,6 +6,7 @@ export const exploratoryTestingLesson: LessonRow = {
   description: "Learn session-based exploratory testing techniques and heuristics",
   step_order: 9,
   duration_min: 12,
+  image: "https://images.unsplash.com/photo-1516534775068-bb6a7b6d4187?w=800&h=600",
   content: `## Exploratory Testing
 
 Exploratory testing is **simultaneous learning, test design, and test execution**. Unlike scripted testing, the tester's knowledge, experience, and creativity guide the process — making it uniquely powerful for discovering unexpected defects.

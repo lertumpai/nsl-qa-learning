@@ -6,6 +6,7 @@ export const bugReportingFundamentalsLesson: LessonRow = {
   description: "Write bug reports that developers actually want to read and can act on",
   step_order: 6,
   duration_min: 12,
+  image: "https://images.unsplash.com/photo-1516541497487-3917ca9e6602?w=800&h=600",
   content: `## Bug Reporting Fundamentals
 
 A bug report is a document that communicates a defect to the development team. A great bug report gets the bug fixed faster; a poor one wastes everyone's time and causes disputes.
