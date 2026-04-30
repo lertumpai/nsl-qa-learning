@@ -32,6 +32,7 @@ import { bddWithCucumberAndGherkinLesson } from "./bdd_with_cucumber_and_gherkin
 import { testDataManagementLesson } from "./test_data_management";
 import { chaosEngineeringAndProductionTestingLesson } from "./chaos_engineering_and_production_testing";
 import { qaLeadershipAndTestManagementLesson } from "./qa_leadership_and_test_management";
+import { fullJavascriptForQaAutomationLesson } from "./full_javascript_for_qa_automation";
 import type { LessonRow } from "../lesson-types";
 
 export const lessons: LessonRow[] = [
@@ -69,4 +70,5 @@ export const lessons: LessonRow[] = [
   testDataManagementLesson,
   chaosEngineeringAndProductionTestingLesson,
   qaLeadershipAndTestManagementLesson,
+  fullJavascriptForQaAutomationLesson,
 ];

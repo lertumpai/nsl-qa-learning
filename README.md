@@ -58,25 +58,16 @@ DATABASE_URL=postgresql://postgres:password@localhost:5432/qa_learning
 psql -U postgres -c "CREATE DATABASE qa_learning;"
 ```
 
-### 4. Run migration (creates tables + seeds lessons)
+### 4. Run migration
 
 ```bash
 npm run migrate
 ```
 
-This creates all 5 database tables and inserts:
-- 3 levels (Beginner, Intermediate, Advanced)
-- 34 lessons with full markdown content
+This creates the database tables used for user progress and quiz session history.
+Lessons and quiz questions are loaded directly from TypeScript files in the app, so there is no content seed step.
 
-### 5. Seed quiz questions
-
-```bash
-npm run seed
-```
-
-This inserts 120+ quiz questions distributed across all lessons (at least 8 per lesson).
-
-### 6. Start the dev server
+### 5. Start the dev server
 
 ```bash
 npm run dev
@@ -102,7 +93,6 @@ docker run -d \
 
 # Wait a few seconds, then run migrations
 npm run migrate
-npm run seed
 ```
 
 To stop/start later:
@@ -122,10 +112,10 @@ docker start qa-learning-db
 | `npm run build` | Build for production |
 | `npm run start` | Start production server |
 | `npm run lint` | Run ESLint |
-| `npm run migrate` | Create tables and seed levels + lessons |
-| `npm run seed` | Seed 120+ quiz questions |
+| `npm run migrate` | Create progress/session tables |
+| `npm run migrate:schema` | Create progress/session tables |
 
-> **Order matters:** Run `migrate` before `seed`. Both scripts are safe to re-run — they use `ON CONFLICT DO NOTHING`.
+> Lessons live in `scripts/lessons`, and quiz questions live in `scripts/quizzes`. The Next.js app imports them directly.
 
 ---
 
@@ -160,6 +150,7 @@ nsl-qa-learning/
 │   ├── QuizResultClient.tsx          # Score gauge + question review
 │   └── ScoreGauge.tsx                # Circular SVG score display
 ├── lib/
+│   ├── content.ts                    # Local levels, lessons, and quizzes adapter
 │   ├── db.ts                         # Singleton pg Pool
 │   └── session.ts                    # httpOnly cookie session (no auth)
 ├── theme/
@@ -167,8 +158,10 @@ nsl-qa-learning/
 ├── types/
 │   └── index.ts                      # TypeScript interfaces
 ├── scripts/
-│   ├── migrate.ts                    # DB schema + lesson seed
-│   └── seed-quizzes.ts               # Quiz question bank
+│   ├── lessons/                      # Lesson markdown content as TypeScript data
+│   ├── quizzes/                      # Quiz question bank as TypeScript data
+│   ├── migrate.ts                    # Progress/session schema migration
+│   └── migrate-schema.ts             # Schema-only migration runner
 ├── .env.example                      # Environment variable template
 ├── next.config.ts
 ├── package.json
@@ -180,12 +173,11 @@ nsl-qa-learning/
 ## Database Schema
 
 ```
-levels          — 3 rows (beginner, intermediate, advanced)
-lessons         — 34 rows with full markdown content
-quizzes         — 120+ rows, randomly selected per session
 user_progress   — tracks completion and best quiz score per session
 quiz_sessions   — records each quiz attempt with answers and score
 ```
+
+Curriculum content is not stored in the database. Levels, lessons, and quizzes are imported directly from local TypeScript files.
 
 All CRUD operations go through **Next.js Server Actions** (`app/actions/`). There are no API routes.
 
@@ -196,8 +188,8 @@ All CRUD operations go through **Next.js Server Actions** (`app/actions/`). Ther
 ### Beginner (10 lessons)
 Fundamentals every tester must know — SDLC, STLC, writing test cases, bug reporting, defect lifecycle, exploratory testing, and API basics.
 
-### Intermediate (12 lessons)
-Test design techniques, RTM, BVA, decision tables, API testing with Postman, database testing, performance concepts, Agile QA, and mobile testing.
+### Intermediate (13 lessons)
+Test design techniques, RTM, BVA, decision tables, API testing with Postman, database testing, performance concepts, Agile QA, JavaScript for QA automation, and mobile testing.
 
 ### Advanced (12 lessons)
 Test automation strategy, Selenium, Cypress, Playwright, API automation, CI/CD integration, k6 performance testing, OWASP security, BDD/Cucumber, and QA leadership.
@@ -231,14 +223,13 @@ No login required. A UUID `session_id` is generated on the first visit and store
 
 ---
 
-## Re-seeding (clean slate)
+## Resetting Progress Data
 
-To wipe and re-seed everything from scratch:
+To wipe stored progress and quiz session history:
 
 ```bash
 psql $DATABASE_URL -c "DROP SCHEMA public CASCADE; CREATE SCHEMA public;"
 npm run migrate
-npm run seed
 ```
 
 ---

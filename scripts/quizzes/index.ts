@@ -22,6 +22,7 @@ import { performanceTestingWithK6Quizzes } from "./performance_testing_with_k6";
 import { securityTestingAndOwaspTop10Quizzes } from "./security_testing_and_owasp_top_10";
 import { bddWithCucumberAndGherkinQuizzes } from "./bdd_with_cucumber_and_gherkin";
 import { qaLeadershipAndTestManagementQuizzes } from "./qa_leadership_and_test_management";
+import { fullJavascriptForQaAutomationQuizzes } from "./full_javascript_for_qa_automation";
 import type { QuizRow } from "../quiz-types";
 
 export const quizzes: QuizRow[] = [
@@ -49,4 +50,5 @@ export const quizzes: QuizRow[] = [
   ...securityTestingAndOwaspTop10Quizzes,
   ...bddWithCucumberAndGherkinQuizzes,
   ...qaLeadershipAndTestManagementQuizzes,
+  ...fullJavascriptForQaAutomationQuizzes,
 ];

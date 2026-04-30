@@ -1,17 +1,17 @@
 "use server";
 
 import pool from "@/lib/db";
+import { getContentQuizzesByIds, getContentQuizzesByLessonId } from "@/lib/content";
 import type { Quiz, SubmitQuizResult } from "@/types";
 
 export async function getRandomQuizzes(lessonId: number, count = 12): Promise<Quiz[]> {
-  const result = await pool.query<Quiz>(
-    `SELECT * FROM quizzes
-     WHERE lesson_id = $1
-     ORDER BY RANDOM()
-     LIMIT $2`,
-    [lessonId, count]
-  );
-  return result.rows;
+  const lessonQuizzes = [...getContentQuizzesByLessonId(lessonId)];
+  for (let i = lessonQuizzes.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [lessonQuizzes[i], lessonQuizzes[j]] = [lessonQuizzes[j], lessonQuizzes[i]];
+  }
+
+  return lessonQuizzes.slice(0, count);
 }
 
 export async function submitQuizSession(
@@ -20,12 +20,7 @@ export async function submitQuizSession(
   answers: Record<number, string>
 ): Promise<SubmitQuizResult> {
   const quizIds = Object.keys(answers).map(Number);
-
-  const quizRes = await pool.query<Quiz>(
-    `SELECT * FROM quizzes WHERE id = ANY($1::int[])`,
-    [quizIds]
-  );
-  const quizzes = quizRes.rows;
+  const quizzes = getContentQuizzesByIds(quizIds);
 
   const results = quizzes.map((q) => {
     const yourAnswer = answers[q.id] ?? "";

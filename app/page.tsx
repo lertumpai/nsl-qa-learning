@@ -5,12 +5,14 @@ import Grid from "@mui/material/Grid";
 import Chip from "@mui/material/Chip";
 import { getLevels } from "@/app/actions/levels";
 import { getSession } from "@/lib/session";
+import { quizzes } from "@/lib/content";
 import Navbar from "@/components/Navbar";
 import LevelCard from "@/components/LevelCard";
 
 export default async function HomePage() {
   const sessionId = await getSession();
   const levels = await getLevels(sessionId ?? undefined);
+  const lessonCount = levels.reduce((total, level) => total + (level.lesson_count ?? 0), 0);
 
   return (
     <Box sx={{ minHeight: "100vh", bgcolor: "background.default" }}>
@@ -89,9 +91,9 @@ export default async function HomePage() {
             }}
           >
             {[
-              { value: "3", label: "Levels" },
-              { value: "34", label: "Lessons" },
-              { value: "370+", label: "Quiz Questions" },
+              { value: levels.length.toString(), label: "Levels" },
+              { value: lessonCount.toString(), label: "Lessons" },
+              { value: quizzes.length.toString(), label: "Quiz Questions" },
             ].map((stat) => (
               <Box key={stat.label} sx={{ textAlign: "center" }}>
                 <Typography
