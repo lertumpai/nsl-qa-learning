@@ -1,0 +1,41 @@
+name: CD
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Create .env file
+        run: |
+          cat > .env <<EOF
+          DATABASE_URL=${{ vars.DATABASE_URL }}
+          EOF
+          echo "=== .env ==="
+          cat .env
+
+      - name: Install sshpass
+        run: sudo apt-get update && sudo apt-get install -y sshpass
+
+      - name: build and deploy
+        run: |
+          make build-image
+          make deploy-tar
+
+      - name: update compose
+        run: make update-compose
+
+      - name: clean
+        run: |
+          make clean-images
+          make clean-remote-images
+          make remove-tar
+          make remove-compose
